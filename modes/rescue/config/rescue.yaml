@@ -1,5 +1,5 @@
 #config_version=5
-
+#Handles the kickback on the left outlane
 mode:
    start_events: ball_starting
    priority: 110
