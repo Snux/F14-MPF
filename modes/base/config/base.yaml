@@ -1,0 +1,101 @@
+#config_version=5
+
+mode:
+   start_events: ball_starting
+   priority: 100
+
+variable_player:
+    s_inlaneRight_active:
+        score: 100
+    mode_base_started:
+        kickback_status:
+           action: set
+           string: OFF
+
+event_player:
+   mode_base_started:
+      - flipper_on
+   mode_base_ended:
+      - flipper_off
+
+      
+         
+slide_player:
+  mode_base_started:
+      slide1:
+        target: dmd
+        widgets:
+          - type: text
+            text: (score)
+            number_grouping: true
+            min_digits: 2
+            font_size: 15
+      slide2:
+         target: dmd_mini
+         widgets:
+          - type: text
+            text: PLAYER (number)
+            color: deepskyblue
+            y: 9
+            x: 1
+            font_size: 8
+            anchor_x: left
+            anchor_y: bottom
+            font_name: fixed_01
+          - type: text
+            color: red
+            text: BALL   (ball)
+            y: 1
+            x: 1
+            anchor_x: left
+            anchor_y: bottom
+            font_size: 8
+            font_name: fixed_01
+          - type: text
+            color: orange
+            text: RESCUE (kickback_status)
+            y: 18
+            x: 1
+            anchor_x: left
+            anchor_y: bottom
+            font_size: 8
+            font_name: fixed_01
+        
+shots:
+  target1:
+    switch: s_target1
+    show_tokens:
+       light: l_target1
+  target2:
+    switch: s_target2
+    show_tokens:
+       light: l_target2       
+  target3:
+    switch: s_target3
+    show_tokens:
+       light: l_target3       
+  target4:
+    switch: s_target4
+    show_tokens:
+       light: l_target4       
+  target5:
+    switch: s_target5
+    show_tokens:
+       light: l_target5       
+  target6:
+    switch: s_target6
+    show_tokens:
+       light: l_target6 
+
+       
+shot_groups:
+   targets1to6:
+      shots: target1, target2, target3, target4, target5, target6
+         
+show_player:
+   mode_base_started:
+      flash:
+         speed: 4
+         show_tokens:
+            lights: l_flyAgain
+        

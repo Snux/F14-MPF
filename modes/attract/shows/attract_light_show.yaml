@@ -1,0 +1,17 @@
+#show_version=5
+- duration: 1
+  lights:
+    l_bonus2X: 0
+    l_bonus4X: ff
+- duration: 1
+  lights:
+    l_bonus4X: 0
+    l_bonus2X: ff
+- duration: 1
+  lights:
+    l_bonus2X: 0
+    l_bonus3X: ff
+- duration: 1
+  lights:
+    l_bonus3X: 0
+    l_bonus2X: ff

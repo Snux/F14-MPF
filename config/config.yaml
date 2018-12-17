@@ -1,0 +1,68 @@
+#config_version=5
+
+config:
+   - display.yaml
+   - prochardware.yaml
+   - devices.yaml
+   - kickback.yaml
+   - simple_shows.yaml
+
+player_vars:
+   rescue_enabled:
+      initial_value: 0
+
+modes:
+   - base
+   - rescue
+
+
+#displays:
+#   default:
+#      width: 128
+#      height: 32
+      
+
+      
+slides:
+   welcome_slide:
+      widgets:
+         - type: text
+           text: PINBALL!
+           font_size: 50
+           color: red
+
+
+
+
+   
+   #init_done.1: welcome_slide2
+
+   
+        
+
+
+virtual_platform_start_active_switches:
+   - s_trough1
+   - s_trough2
+   - s_trough3
+   - s_trough4
+
+      
+
+      
+      
+playfields:
+   playfield:
+       default_source_device: bd_plunger_lane
+       tags: default
+
+
+
+      
+keyboard:
+   z:
+      switch:   s_left_inlane
+   x:
+      switch:   s_right_inlane
+   s:
+      switch:   s_startButton

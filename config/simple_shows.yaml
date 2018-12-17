@@ -1,0 +1,20 @@
+#config_version=5
+
+shows:
+   fast_blink:
+      - time: 0
+        lights:
+           (lamp): on
+      - time: +0.5s
+        lights:
+           (lamp): off
+        duration: 0.5s
+   faster_blink:
+      - time: 0
+        lights:
+           (lamp): on
+      - time: +0.25s
+        lights:
+           (lamp): off
+        duration: 0.25s
+         

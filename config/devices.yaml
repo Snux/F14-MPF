@@ -1,0 +1,53 @@
+#config_version=5
+
+ball_devices:
+   bd_drain:
+      ball_switches: s_outhole
+      eject_coil: c_outholeKicker
+      eject_targets: bd_trough
+      tags: drain
+   bd_trough:
+      ball_switches: s_trough1 s_trough2 s_trough3 s_trough4
+      eject_coil: c_troughEject
+      eject_targets: bd_plunger_lane
+      tags: home, trough 
+   bd_plunger_lane:
+      ball_switches: s_shooter
+      mechanical_eject: true
+      eject_coil: c_autoLaunch
+      entrance_count_delay: 1s
+      eject_targets: bd_mid_left_lock, bd_mid_right_lock, bd_lower_right_lock
+   bd_mid_left_lock:
+      ball_switches: s_midLeftEject
+      eject_coil: c_midLeftEject
+   bd_mid_right_lock:
+      ball_switches: s_midRightEject
+      eject_coil: c_midRightEject
+      request_ball_events: load_mid_right_lock
+   bd_lower_right_lock:
+      ball_switches:  s_rightEject
+      eject_coil: c_rightEject
+   bd_vuk:
+      ball_switches: s_vUK
+      eject_coil: c_upKicker
+      eject_targets: bd_mid_left_lock, bd_mid_right_lock, bd_lower_right_lock
+
+      
+diverters:
+   top_diverter:
+      activation_coil: c_upperDivertor
+      activation_time: 3s
+      activation_switches: s_rampEntry
+      activate_events: send_to_mid_right_lock
+      targets_when_active: bd_mid_right_lock
+      targets_when_inactive: bd_lower_right_lock
+      feeder_devices: bd_vuk, bd_plunger_lane
+   lower_diverter:
+      activation_time: 3s
+      activation_switches: s_rampEntry
+      activation_coil: c_lowerDivertor
+      targets_when_active: bd_mid_left_lock
+      targets_when_inactive: bd_lower_right_lock
+      feeder_devices: bd_vuk, bd_plunger_lane
+      
+      

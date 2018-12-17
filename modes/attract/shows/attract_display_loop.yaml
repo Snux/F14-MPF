@@ -1,0 +1,78 @@
+#show_version=5
+
+- duration: 3s
+  slides:
+    awesome_slide:
+      target: dmd_mini
+      widgets:
+      - type: text
+        text: "F14\nTOMCAT"
+        font_size: 10
+        color: red
+        font_name: smallest_pixel-7
+        round_anchor_x: left
+        round_anchor_y: bottom
+
+
+- duration: 3s
+  slides:
+    player_info:
+      target: dmd_mini
+      widgets:
+         - type: text
+           text: "TOMCAT\nSYSTEMS\nOPERATIONAL"
+           color: yellow
+           font_size: 10
+           font_name: smallest_pixel-7
+           round_anchor_x: left
+           round_anchor_y: bottom
+    press_start:
+      widgets:
+      - type: Text
+        text: PRESS START
+        anchor_y: top
+        font_size: 15
+        y: 31
+        animations:
+          pre_show_slide:
+            - property: opacity
+              value: 0
+              duration: .5s
+            - property: opacity
+              value: 1
+              duration: .5s
+              repeat: -1
+      - type: Text
+        text: FREE PLAY
+        color: green
+        font_size: 15
+        y: 1
+        anchor_y: bottom
+      transition:
+         type: move_in
+         duration: 1s
+         direction: right
+
+- duration: 3
+  slides:
+    mission_pinball:
+      widgets:
+      - type: Text
+        text: MISSION PINBALL
+        color: red
+        font_size: 15
+      transition:
+         type: move_in
+         duration: 1s
+         direction: top
+         
+- duration: 3
+  slides:
+    mission_pinball:
+      widgets:
+      - type: image
+        image: f14logo
+      transition:
+         type: move_in
+         duration: 1s
+         direction: top

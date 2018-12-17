@@ -1,0 +1,94 @@
+#config_version=5
+
+mode:
+   start_events: ball_starting
+   priority: 110
+   
+
+
+
+shots:
+  rightRescue:
+    switch: s_rightRescue
+    show_tokens:
+       light: l_rightRescue
+  leftRescue:
+    switch: s_leftRescue
+    show_tokens:
+       light: l_leftRescue
+
+shot_groups:
+   rescue:
+      shots: leftRescue, rightRescue
+      reset_events: 
+         rescue_complete: 0.5s
+
+variable_player:
+   rescue_enabled:
+      kickback_status:
+         action: set
+         string : ON
+   rescue_grace:
+      kickback_status:
+         action: set
+         string : GRACE
+   rescue_off:
+      kickback_status:
+         action: set
+         string : OFF
+   
+
+event_player:
+   rescue_complete{state=='lit'} :
+      - rescue_enabled
+   s_outlaneLeft_active{current_player.kickback_status=='ON'}:
+      - rescue_grace
+   timer_rescue_grace_complete:
+      - rescue_off
+      
+slide_player:
+   rescue_enabled:
+     slide_rescue:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: KICKBACK READY!
+            font_size: 15
+            color: orange
+     
+show_player:
+   rescue_enabled:
+      fast_blink:
+         key: rescue
+         show_tokens: 
+            lamp: l_kickBack
+   rescue_grace:
+      faster_blink:
+         key: rescue
+         show_tokens: 
+            lamp: l_kickBack
+      fast_blink:
+         action: stop
+         key: rescue
+   rescue_off: 
+      fast_blink: 
+         action: stop
+         key: rescue
+
+      
+timers:
+   rescue_grace:
+      start_value: 2
+      end_value: 0
+      direction: down
+      control_events:
+         - event: rescue_grace
+           action: start
+         - event: rescue_enabled
+           action: stop
+         - event: rescue_enabled
+           action: reset
+      start_running: false
+     
+

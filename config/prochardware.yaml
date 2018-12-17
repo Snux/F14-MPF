@@ -1,0 +1,540 @@
+#config_version=5
+
+hardware:
+    platform: p_roc
+    driverboards: wpc
+    coils: snux
+
+system11:
+    ac_relay_delay_ms: 75
+    ac_relay_driver: c_acSelect
+
+snux:
+    flipper_enable_driver: c_flipperEnable
+    diag_led_driver: c_diagLED
+    platform:
+
+lights:
+    l_lightLockOn:
+        number: L11
+        label: 'Lites Lock On'
+    l_lightRelease:
+        number: L12
+        label: 'Lites Release'
+    l_blueSpecial:
+        number: L13
+        label: 'Hot Streak'
+    l_flyAgain:
+        number: L14
+        label: 'Fly Again'
+    l_leftRescue:
+        number: L15
+        label: 'Left Rescue'
+    l_kill:
+        number: L16
+        label: 'Centre Kill'
+    l_rightRescue:
+        number: L17
+        label: 'Right Rescue'
+    l_kickBack:
+        number: L18
+        label: 'Rescue'
+    l_kill1:
+        number: L21
+        label: 'Alpha Kill'
+    l_kill2:
+        number: L22
+        label: 'Bravo Kill'
+    l_kill3:
+        number: L23
+        label: 'Charlie Kill'
+    l_kill4:
+        number: L24
+        label: 'Delta Kill'
+    l_kill5:
+        number: L25
+        label: 'Echo Kill'
+    l_kill6:
+        number: L26
+        label: 'Fox Kill'
+    l_kill7:
+        number: L27
+        label: 'Golf Kill'
+    l_insurance:
+        number: L28
+        label: 'Insurance'
+    l_bonus1K:
+        number: L31
+        label: '1K'
+    l_bonus2K:
+        number: L32
+        label: '2K'
+    l_bonus4K:
+        number: L33
+        label: '4K'
+    l_bonus8K:
+        number: L34
+        label: '8K'
+    l_bonus16K:
+        number: L35
+        label: '16K'
+    l_bonus32K:
+        number: L36
+        label: '32K'
+    l_bonus64K:
+        number: L37
+        label: '64K'
+    l_special:
+        number: L38
+        label: 'Special'
+    l_bonus2X:
+        number: L41
+        label: '2X'
+    l_bonus3X:
+        number: L42
+        label: '3X'
+    l_bonus4X:
+        number: L43
+        label: '4X'
+    l_bonus5X:
+        number: L44
+        label: '5X'
+    l_bonus6X:
+        number: L45
+        label: '6X'
+    l_bonus7X:
+        number: L46
+        label: '7X'
+    l_bonus8X:
+        number: L47
+        label: '8X'
+    l_bonusXLeft:
+        number: L48
+        label: 'Bonus X Left'
+    l_lowerLeftT:
+        number: L51
+        label: 'Lower Left T'
+    l_lowerLeftO:
+        number: L52
+        label: 'Lower Left O'
+    l_lowerLeftM:
+        number: L53
+        label: 'Lower Left M'
+    l_lowerRightT:
+        number: L54
+        label: 'Lower Right T'
+    l_lowerRightA:
+        number: L55
+        label: 'Lower Right A'
+    l_lowerRightC:
+        number: L56
+        label: 'Lower Right C'
+    l_inLanes:
+        number: L57
+        label: 'Inlanes x 2'
+    l_landing:
+        number: L58
+        label: 'Landing'
+    l_target3:
+        number: L61
+        label: 'Target - 3'
+    l_target2:
+        number: L62
+        label: 'Target - 2'
+    l_target1:
+        number: L63
+        label: 'Target - 1'
+    l_target4:
+        number: L64
+        label: 'Target - 4'
+    l_target5:
+        number: L65
+        label: 'Target - 5'
+    l_target6:
+        number: L66
+        label: 'Target - 6'
+    l_release:
+        number: L67
+        label: 'Release'
+    l_lockOn:
+        number: L68
+        label: 'Lock On'
+    l_upperLeftT:
+        number: L71
+        label: 'Upper Left T'
+    l_upperLeftO:
+        number: L72
+        label: 'Upper Left O'
+    l_upperLeftM:
+        number: L73
+        label: 'Upper Left M'
+    l_upperRightT:
+        number: L74
+        label: 'Upper Right T'
+    l_upperRightA:
+        number: L75
+        label: 'Upper Right A'
+    l_upperRightC:
+        number: L76
+        label: 'Upper Right C'
+    l_bonusXRight:
+        number: L77
+        label: 'Bonus X Right'
+    l_spinner2K:
+        number: L78
+        label: 'Spinner 2K'
+    l_upperLock:
+        number: L81
+        label: 'Upper Lock'
+    l_middleLock:
+        number: L82
+        label: 'Centre Lock'
+    l_lowerLock:
+        number: L83
+        label: 'Lower Lock'
+    l_upperLanding:
+        number: L84
+        label: 'Upper Landing'
+    l_middleLanding:
+        number: L85
+        label: 'Centre Landing'
+    l_lowerLanding:
+        number: L86
+        label: 'Lower Landing'
+    l_ripOff:
+        number: L87
+        label: 'Rip Off'
+    l_extraBall:
+        number: L88
+        label: 'Extra Ball'
+
+
+coils:
+    c_outholeKicker:
+        number: C01a
+        label: 'Outhole'
+        default_pulse_ms: 30
+    c_flasher1:
+       number: C01c
+       label: 'Flasher 1'
+    c_troughEject:
+        number: C02a
+        tags: trough_eject
+        default_pulse_ms: 30
+        label: 'Trough Eject'
+    c_flasher2:
+        number: C02c
+        label: 'Flasher 2'
+    c_upKicker:
+        number: C03a
+        label: 'Ball Popper'
+    c_flasher3:
+        number: C03c
+        pulse_events: rescue_complete{state=='lit'}
+        label: 'Flasher 3'
+        default_pulse_ms: 200ms
+    c_flasher4:
+        number: C04c
+        label: 'Flasher 4'
+        pulse_events: rescue_complete{ state=='lit'}
+        default_pulse_ms: 200ms
+    c_midRightEject:
+        number: C05a
+        label: 'Center Right Eject'
+        default_pulse_ms: 200ms
+    c_flasher5:
+        number: C05c
+        label: 'Flasher 5'
+        pulse_events: rescue_complete{ state=='lit'}
+        default_pulse_ms: 200ms
+    c_knocker:
+        number: C06a
+        label: 'Knocker'
+    c_flasher6:
+        number: C06c
+        label: 'Flasher 6'
+    c_rightEject:
+        number: C07a
+        label: 'Right Eject'
+    c_flasher7:
+        number: C07c
+        label: 'Flasher 7'
+    c_flasher8:
+        number: C08c
+        label: 'Flasher 8'
+    c_flasher9:
+        number: C09
+        label: 'Flasher 9'
+    c_midLeftEject:
+        number: C10
+        label: 'Centre Left Eject'
+    c_gi:
+        number: C11
+        label: 'General Illum'
+    c_yagovKickBack:
+        number: C12
+        label: 'Yagov Kickback'
+        #platform: p_roc
+    c_rescueKickBack:
+        number: C13
+        label: 'Rescue Kickback'
+        platform: p_roc
+    c_acSelect:
+        number: C14
+        label: 'A/C Select'
+        allow_enable: true
+    c_flasher10:
+        number: C15
+        label: 'Flasher 10'
+    c_beacons:
+        number: C16
+        label: 'Beacons'
+        allow_enable: true
+    c_leftKicker:
+        number: C17
+        label: 'Left Sling'
+    c_rightKicker:
+        number: C18
+        label: 'Right Sling'
+    c_autoLaunch:
+        number: C19
+        label: 'Ball Auto Launch'
+        default_pulse_ms: 500ms
+    c_jetBumper:
+        number: C20
+        label: 'Pop Bumper'
+    c_upperDivertor:
+        number: C21
+        label: 'Upper Divertor'
+        allow_enable: true
+    c_lowerDivertor:
+        number: C22
+        label: 'Lower Divertor'
+        allow_enable: true
+    c_flipperEnable:
+        number: C23
+        label: 'Flipper Enable'
+        allow_enable: true
+        enable_events: flipper_on
+        disable_events: flipper_off
+    c_diagLED: 
+        number: C24
+        allow_enable: true
+        file_log: none
+        console_log: none
+
+switches:
+    s_flipperLwR:
+        number: S27
+        label: 'Left Flipper EOS'
+    s_flipperLwL:
+        number: S87
+        label: 'Right Flipper EOS'
+    s_coinLeft:
+        number: S16
+        label: 'Left Coin Slot'
+    s_coinCenter:
+        number: S15
+        label: 'Center Coin Slot'
+    s_coinRight:
+        number: S14
+        label: 'Right Coin Slot'
+    s_upSys11:
+        number: SD8
+    s_downSys11:
+        number: SD2
+    s_enterSys11:
+        number: SD5
+    s_exitSys11:
+        number: SD0
+    s_startButton:
+        number: S13
+        label: 'Start Button'
+        tags: start
+    s_tilt:
+        number: S11
+        label: 'Tilt'
+    s_outlaneLeft:
+        number: S85
+        label: 'Left Outlane'
+        tags: early_save
+    s_inlaneLeft:
+        number: S83
+        label: 'Left Inlane'
+        tags: playfield_active
+    s_inlaneRight:
+        number: S84
+        label: 'Right Inlane'
+        tags: playfield_active
+    s_outlaneRight:
+        number: S86
+        tags: early_save, playfield_active
+        label: 'Right Outlane'
+    s_slamTilt:
+        number: S17
+        label: 'Slam Tilt'
+    s_outhole:
+        number: S22
+        label: 'Outhole'
+    s_trough4:
+        number: S23
+        label: 'Right Ball Trough'
+    s_trough2:
+        number: S24
+        label: 'Right Center Ball Trough'
+    s_trough3:
+        number: S25
+        label: 'Left Center Ball Trough'
+    s_trough1:
+        number: S26
+        label: 'Left Ball Trough'
+    s_shooter:
+        number: S28
+        label: 'Shooter Lane'
+    s_up:
+        number: S31
+    s_down:
+        number: S32
+    s_enter:
+        number: S33
+    s_rampEntry:
+        number: S34
+        label: 'Ramp Entry'
+    s_rightEject:
+        number: S35
+        label: 'Right Eject'
+    s_midLeftEject:
+        number: S36
+        label: 'Left Center Eject'
+    s_midRightEject:
+        number: S37
+        label: 'Right Center Eject'
+    s_vUK:
+        number: S38
+        label: 'Ball Popper'
+    s_leftRescue:
+        number: S41
+        label: 'Left Center Target'
+        #tags: playfield_active
+    s_rightRescue:
+        number: S42
+        label: 'Right Center Target'
+        #tags: playfield_active
+    s_debug:
+        number: S43
+    s_jetBumper:
+        number: S44
+        label: 'Pop Bumper'
+        tags: playfield_active
+    s_exit:
+        number: S45
+    s_lowerRampMade:
+        number: S46
+        label: 'Lower Ramp'
+    s_middleRampMade:
+        number: S47
+        label: 'Middle Ramp'
+    s_upperRampMade:
+        number: S48
+        label: 'Upper Ramp'
+    s_lowerLeftT:
+        number: S51
+        label: 'Lower Left T'
+        tags: playfield_active
+    s_lowerLeftO:
+        number: S52
+        label: 'Lower Left O'
+        tags: playfield_active
+    s_lowerLeftM:
+        number: S53
+        label: 'Lower Left M'
+        tags: playfield_active
+    s_lowerRightT:
+        number: S54
+        label: 'Lower Right T'
+        tags: playfield_active
+    s_lowerRightA:
+        number: S55
+        label: 'Lower Right A'
+        tags: playfield_active
+    s_lowerRightC:
+        number: S56
+        label: 'Lower Right C'
+        tags: playfield_active
+    s_unused57:
+        number: S57
+    s_unused58:
+        number: S58
+    s_target3:
+        number: S61
+        label: 'Target - 3'
+        #tags: playfield_active
+    s_target2:
+        number: S62
+        label: 'Target - 2'
+    s_target1:
+        #tags: playfield_active
+        number: S63
+        label: 'Target - 1'
+    s_target4:
+        number: S64
+        #tags: playfield_active
+        label: 'Target - 4'
+    s_target5:
+        number: S65
+        label: 'Target - 5'
+        #tags: playfield_active
+    s_target6:
+        number: S66
+        label: 'Target - 6'
+        #tags: playfield_active
+    s_bonusXRight:
+        tags: playfield_active
+        number: S67
+        label: 'Top Right Loop'
+    s_spinner:
+        number: S68
+        label: 'Spinner'
+        tags: playfield_active
+    s_upperLeftT:
+        number: S71
+        label: 'Upper Left T'
+        tags: playfield_active
+    s_upperLeftO:
+        number: S72
+        label: 'Upper Left O'
+        tags: playfield_active
+    s_upperLeftM:
+        number: S73
+        label: 'Upper Left M'
+        tags: playfield_active
+    s_upperRightT:
+        number: S74
+        label: 'Upper Right T'
+        tags: playfield_active
+    s_upperRightA:
+        number: S75
+        label: 'Upper Right A'
+        tags: playfield_active
+    s_upperRightC:
+        number: S76
+        label: 'Upper Right C'
+        tags: playfield_active
+    s_yagov:
+        number: S77
+        label: 'Yagov'
+        #tags: playfield_active
+    s_bonusXLeft:
+        number: S78
+        label: 'Top Left Loop'
+        tags: playfield_active
+    s_slingL:
+        number: S81
+        label: 'Left Sling'
+        tags: playfield_active
+    s_slingR:
+        number: S82
+        label: 'Right Sling'
+        tags: playfield_active
+    
+
