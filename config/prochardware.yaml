@@ -415,11 +415,11 @@ switches:
     s_leftRescue:
         number: S41
         label: 'Left Center Target'
-        #tags: playfield_active
+        tags: playfield_active
     s_rightRescue:
         number: S42
         label: 'Right Center Target'
-        #tags: playfield_active
+        tags: playfield_active
     s_debug:
         number: S43
     s_jetBumper:
@@ -468,26 +468,26 @@ switches:
     s_target3:
         number: S61
         label: 'Target - 3'
-        #tags: playfield_active
+        tags: playfield_active
     s_target2:
         number: S62
         label: 'Target - 2'
     s_target1:
-        #tags: playfield_active
+        tags: playfield_active
         number: S63
         label: 'Target - 1'
     s_target4:
         number: S64
-        #tags: playfield_active
+        tags: playfield_active
         label: 'Target - 4'
     s_target5:
         number: S65
         label: 'Target - 5'
-        #tags: playfield_active
+        tags: playfield_active
     s_target6:
         number: S66
         label: 'Target - 6'
-        #tags: playfield_active
+        tags: playfield_active
     s_bonusXRight:
         tags: playfield_active
         number: S67
@@ -523,7 +523,7 @@ switches:
     s_yagov:
         number: S77
         label: 'Yagov'
-        #tags: playfield_active
+        tags: playfield_active
     s_bonusXLeft:
         number: S78
         label: 'Top Left Loop'
