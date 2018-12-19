@@ -8,17 +8,3 @@ autofire_coils:
       debug: true
       ball_search_order: 0
       disable_events: rescue_off
-#   yagov:
-#      coil: c_yagovKickBack
-#      switch: s_yagov
-#      ball_search_order: 0
-#      enable_events: ball_started
-#      debug: true
-      
-# This ball save is in case the kickback misses
-ball_saves:
-   kickback_save:
-      balls_to_save: 1
-      active_time: 1.5s
-      enable_events: kickback_rescue_kickback_fired
-      auto_launch: yes
