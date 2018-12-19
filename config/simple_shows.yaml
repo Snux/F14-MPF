@@ -13,8 +13,8 @@ shows:
       - time: 0
         lights:
            (lamp): on
-      - time: +0.25s
+      - time: +0.2s
         lights:
            (lamp): off
-        duration: 0.25s
+        duration: 0.2s
          

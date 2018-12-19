@@ -60,21 +60,22 @@ slide_player:
 show_player:
    rescue_enabled:
       fast_blink:
-         key: rescue
+         key: rescue_blink
          show_tokens: 
             lamp: l_kickBack
    rescue_grace:
-      faster_blink:
-         key: rescue
-         show_tokens: 
-            lamp: l_kickBack
       fast_blink:
          action: stop
-         key: rescue
+         key: rescue_blink
+   rescue_grace.1:
+      faster_blink:
+         key: rescue_blink2
+         show_tokens: 
+            lamp: l_kickBack
    rescue_off: 
-      fast_blink: 
+      faster_blink: 
          action: stop
-         key: rescue
+         key: rescue_blink2
 
       
 timers:
