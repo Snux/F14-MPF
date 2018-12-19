@@ -1,6 +1,6 @@
 events:
   game_ended: 15
-  game_started: 146
+  game_started: 176
 player:
   score:
     average: 0.0
@@ -17,8 +17,8 @@ player:
     - 0
     total: 15
 shots:
-  leftRescue: 130
-  rightRescue: 135
+  leftRescue: 140
+  rightRescue: 145
   target1: 1
   target2: 3
   target3: 3
@@ -26,7 +26,7 @@ shots:
   target5: 1
   target6: 1
 switches:
-  s_bonusXLeft: 49
+  s_bonusXLeft: 58
   s_bonusXRight: 7
   s_coinCenter: 0
   s_coinLeft: 0
@@ -41,10 +41,10 @@ switches:
   s_exitSys11: 0
   s_flipperLwL: 37
   s_flipperLwR: 63
-  s_inlaneLeft: 13
-  s_inlaneRight: 76
-  s_jetBumper: 19
-  s_leftRescue: 130
+  s_inlaneLeft: 14
+  s_inlaneRight: 106
+  s_jetBumper: 20
+  s_leftRescue: 140
   s_left_inlane: 4
   s_lowerEject: 0
   s_lowerLeftM: 5
@@ -55,18 +55,18 @@ switches:
   s_lowerRightC: 7
   s_lowerRightT: 18
   s_midLeftEject: 9
-  s_midRightEject: 97
+  s_midRightEject: 122
   s_middleEject: 0
   s_middleRampMade: 6
   s_outhole: 104
-  s_outlaneLeft: 199
+  s_outlaneLeft: 220
   s_outlaneRight: 25
   s_plunger: 1
-  s_rampEntry: 234
+  s_rampEntry: 255
   s_rightEject: 12
-  s_rightRescue: 135
+  s_rightRescue: 168
   s_right_inlane: 4
-  s_shooter: 197
+  s_shooter: 224
   s_slamTilt: 0
   s_slingL: 25
   s_slingR: 23
@@ -81,9 +81,9 @@ switches:
   s_target6: 1
   s_tilt: 0
   s_trough1: 57
-  s_trough2: 157
-  s_trough3: 29
-  s_trough4: 135
+  s_trough2: 167
+  s_trough3: 32
+  s_trough4: 145
   s_trough_centre: 0
   s_trough_left: 0
   s_trough_right: 0
@@ -95,9 +95,9 @@ switches:
   s_upperLeftM: 0
   s_upperLeftO: 0
   s_upperLeftT: 7
-  s_upperRampMade: 54
-  s_upperRightA: 16
-  s_upperRightC: 25
-  s_upperRightT: 2
+  s_upperRampMade: 62
+  s_upperRightA: 22
+  s_upperRightC: 30
+  s_upperRightT: 5
   s_vUK: 1
   s_yagov: 12

@@ -7,10 +7,7 @@ mode:
 variable_player:
     s_inlaneRight_active:
         score: 100
-    mode_base_started:
-        kickback_status:
-           action: set
-           string: OFF
+
 
 event_player:
    mode_base_started:
@@ -98,4 +95,7 @@ show_player:
          speed: 4
          show_tokens:
             lights: l_flyAgain
+      blink:
+         show_tokens:
+            lamp: l_bonus16K
         

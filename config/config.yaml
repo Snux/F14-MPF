@@ -10,6 +10,12 @@ config:
 player_vars:
    rescue_enabled:
       initial_value: 0
+   rescue_target_state:
+      initial_value: OFF
+      value_type: str
+   kickback_status:
+      initial_value: OFF
+      value_type: str
 
 modes:
    - base

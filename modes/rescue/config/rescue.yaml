@@ -1,27 +1,30 @@
 #config_version=5
-#Handles the kickback on the left outlane
+# This mode handles the kickback called 'Rescue' in the left outlane. 
+# The machine has an autofire coil defined (see kickback.yaml) which is enabled with event 
+# rescue_enabled and switched off with event rescue_off
+# In the centre of the playfield are 2 'rescue' targets with associated lamps.  The lamps come on
+# alternately, with a small pause in between.  
+# So the left lamp is lit, then goes off and after a pause the right lamp comes on and so on.
+# If the target is hit while it's associated lamp is lit, then this will enabled the kickback
+# and the lamp in the left outlane will be on to indicate this
+# After the kickback has fired, there is a 2 second grace period during which the outlane lamp flashes
+# in case the ball either doesn't kick properly or goes back down there again.
+
 mode:
-   start_events: ball_starting
+   start_events: ball_starting 
    priority: 110
    
 
 
-
-shots:
-  rightRescue:
-    switch: s_rightRescue
-    show_tokens:
-       light: l_rightRescue
-  leftRescue:
-    switch: s_leftRescue
-    show_tokens:
-       light: l_leftRescue
-
-shot_groups:
-   rescue:
-      shots: leftRescue, rightRescue
-      reset_events: 
-         rescue_complete: 0.5s
+# Variable - kickback_status - Used to track the left outlane kickback status
+# Values   - ON    - kickback is active (rule is programmed to kick via autofire coil)
+#            OFF   - not active
+#            GRACE - after the kickback fires, it remains active for 2 seconds.
+#
+# Variable - rescue_target_state - Keeps track of if the left or right rescue target is lit
+# Values   - L     - left target currently lit
+#            R     - right target currently lit
+#            OFF   - neither target currently lit
 
 variable_player:
    rescue_enabled:
@@ -36,16 +39,68 @@ variable_player:
       kickback_status:
          action: set
          string : OFF
+   rescue_target_left_lit:
+      rescue_target_state:
+         action: set
+         string: left_is_lit
+   rescue_target_right_lit:
+      rescue_target_state:
+         action: set
+         string: right_is_lit
+   rescue_target_none:
+      rescue_target_state:
+         action: set
+         string: OFF
+         
    
 
+# Use the event_playet section to turn some of the more complex conditional events into easier to read ones.
 event_player:
-   rescue_complete{state=='lit'} :
+   s_rightRescue_active{current_player.rescue_target_state=='right_is_lit'}: # hit the right target and it's lit
       - rescue_enabled
-   s_outlaneLeft_active{current_player.kickback_status=='ON'}:
+   s_leftRescue_active{current_player.rescue_target_state=='left_is_lit'}: # hit the left target and it's lit
+      - rescue_enabled
+   s_outlaneLeft_active{current_player.kickback_status=='ON'}: # down the outlane, start the grace period if active
       - rescue_grace
-   timer_rescue_grace_complete:
+   timer_rescue_grace_complete: # 2 second grace is over
       - rescue_off
+
       
+
+# Consider the 2 rescue targets as a state machine.  It moves between 4 states
+# such that either a lamp is lit, or they're both off
+state_machines:
+   rescue_target:
+      states:
+         start:
+            events_when_started: dummy_event
+         left:
+            events_when_started: rescue_target_left_lit
+         left_to_right:
+            events_when_started: rescue_target_none
+         right:
+            events_when_started: rescue_target_right_lit
+         right_to_left:
+            events_when_started: rescue_target_none
+      transitions:
+         - source: start
+           target: left
+           events: timer_rescue_target_cycle_tick
+         - source: left
+           target: left_to_right
+           events: timer_rescue_target_cycle_tick
+         - source: left_to_right
+           target: right
+           events: timer_rescue_target_cycle_tick
+         - source: right
+           target: right_to_left
+           events: timer_rescue_target_cycle_tick
+         - source: right_to_left
+           target: left
+           events: timer_rescue_target_cycle_tick
+           
+         
+# Just one slide that will display briefly when the kickback is active      
 slide_player:
    rescue_enabled:
      slide_rescue:
@@ -59,23 +114,34 @@ slide_player:
      
 show_player:
    rescue_enabled:
-      fast_blink:
-         key: rescue_blink
+      on:
          show_tokens: 
-            lamp: l_kickBack
+            light: l_kickBack
    rescue_grace:
-      fast_blink:
+      lamp_on:
          action: stop
-         key: rescue_blink
-   rescue_grace.1:
-      faster_blink:
-         key: rescue_blink2
+      blink:
+         speed: 4
          show_tokens: 
             lamp: l_kickBack
+   rescue_target_left_lit:
+      lamp_on:
+         key: rescueLR
+         show_tokens:
+            lamp: l_leftRescue
+   rescue_target_right_lit:
+      lamp_on:
+         key: rescueLR
+         show_tokens:
+            lamp: l_rightRescue
+   rescue_target_none:
+      lamp_on:
+         action: stop 
+         key: rescueLR
    rescue_off: 
-      faster_blink: 
-         action: stop
-         key: rescue_blink2
+      off: 
+         show_tokens:
+            light: l_kickBack
 
       
 timers:
@@ -91,5 +157,7 @@ timers:
          - event: rescue_enabled
            action: reset
       start_running: false
-     
+   rescue_target_cycle:
+      start_value: 0
+      start_running: true
 
