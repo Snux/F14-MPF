@@ -1,0 +1,11 @@
+#config_version=5
+dmds:
+  my_dmd:  # name of this DMD which can be whatever you want
+    brightness: 1.0
+    fps: 25
+    gamma: 1.0
+    source_display: dmd
+    platform: p_roc
+    
+p_roc:
+   dmd_timing_cycles: 90, 190, 50, 377
