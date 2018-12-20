@@ -6,6 +6,8 @@ config:
    - devices.yaml
    - kickback.yaml
    - simple_shows.yaml
+#   - smart_matrix.yaml
+#   - real_dmd.yaml
 
 player_vars:
    rescue_enabled:
@@ -16,6 +18,16 @@ player_vars:
    kickback_status:
       initial_value: OFF
       value_type: str
+
+settings:
+   tomcat_spot_both:
+      label: Spot Both Tomcat Letters
+      key_type: str
+      values: 
+         YES: Spot both letters
+         NO: Spot single letter
+      default: YES
+      sort: 100
 
 modes:
    - base

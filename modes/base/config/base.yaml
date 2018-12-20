@@ -57,6 +57,15 @@ slide_player:
             anchor_y: bottom
             font_size: 8
             font_name: fixed_01
+  tomcat_lit_complete:
+     slide_tomcat:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: TOMCAT
+            font_size: 15
+            color: blue
         
 shots:
   target1:
@@ -82,12 +91,58 @@ shots:
   target6:
     switch: s_target6
     show_tokens:
-       light: l_target6 
+       light: l_target6
+  tomcat_t:
+    switches: s_lowerLeftT s_upperLeftT
+    show_tokens: 
+       lights: l_lowerLeftT l_upperLeftT
+    profile: tomcat_profile 
+  tomcat_o:
+    switches: s_lowerLeftO s_upperLeftO
+    show_tokens: 
+       lights: l_lowerLeftO l_upperLeftO
+    profile: tomcat_profile 
+  tomcat_m:
+    switches: s_lowerLeftM s_upperLeftM
+    show_tokens: 
+       lights: l_lowerLeftM l_upperLeftM
+    profile: tomcat_profile 
+  tomcat_c:
+    switches: s_lowerRightC s_upperRightC
+    show_tokens: 
+       lights: l_lowerRightC l_upperRightC
+    profile: tomcat_profile 
+  tomcat_a:
+    switches: s_lowerRightA s_upperRightA
+    show_tokens: 
+       lights: l_lowerRightA l_upperRightA
+    profile: tomcat_profile   
+  tomcat_second_t:
+    switches: s_lowerRightT s_upperRightT
+    show_tokens: 
+       lights: l_lowerRightT l_upperRightT
+    profile: tomcat_profile 
 
-       
+    
+    
+shot_profiles:
+  tomcat_profile:
+    states:
+      - name: flashing  # step 1
+        show: flash
+        speed: 4
+      - name: lit  # step 2
+        show: on
+    loop: false
+    
+           
 shot_groups:
    targets1to6:
       shots: target1, target2, target3, target4, target5, target6
+   tomcat: # Just list the lower ones because upper and lower are tied anyway
+      shots: tomcat_t tomcat_o tomcat_m tomcat_c tomcat_a tomcat_second_t 
+      restart_events: tomcat_lit_complete
+
          
 show_player:
    mode_base_started:

@@ -145,6 +145,7 @@ show_player:
 
       
 timers:
+   # Handles the grace period after the kickback fires
    rescue_grace:
       start_value: 2
       end_value: 0
@@ -157,6 +158,7 @@ timers:
          - event: rescue_enabled
            action: reset
       start_running: false
+   # Just used to generate a tick to flip/flop the central rescue targets
    rescue_target_cycle:
       start_value: 0
       start_running: true

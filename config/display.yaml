@@ -1,7 +1,6 @@
 #config_version=5
 
-hardware:
-    rgb_dmd: smartmatrix
+
 
 displays:
    dmd:
@@ -49,25 +48,3 @@ slide_player:
          target: laptop
        
       
-smartmatrix:
-    smartmatrix_1:
-       port: com3
-       baud: 2500000
-       old_cookie: false
-    smartmatrix_2:
-       port: com5
-       baud: 2500000
-       old_cookie: false
-       
-rgb_dmds:
-  smartmatrix_1:
-     platform: smartmatrix
-     brightness: .5
-     source_display: dmd
-     fps: 25      
-  smartmatrix_2:
-     platform: smartmatrix
-     only_send_changes: true
-     brightness: .5
-     source_display: dmd_mini
-     fps: 25      
