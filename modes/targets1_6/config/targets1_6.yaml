@@ -1,5 +1,14 @@
 #config_version=5
 
+
+#      __  ___          __          __                        __      ___    _____
+#     /  |/  /___  ____/ /__  _    / /_____ __________ ____  / /_____<  /   / ___/
+#    / /|_/ / __ \/ __  / _ \(_)  / __/ __ `/ ___/ __ `/ _ \/ __/ ___/ /   / __ \ 
+#   / /  / / /_/ / /_/ /  __/    / /_/ /_/ / /  / /_/ /  __/ /_(__  ) /   / /_/ / 
+#  /_/  /_/\____/\__,_/\___(_)   \__/\__,_/_/   \__, /\___/\__/____/_/____\____/  
+#                                              /____/               /_____/       
+
+
 # This mode handles the targets numbered 1-6 in the centre of the playfield.
 # The targets are lit one at a time, moving from 1 through to 6 and then back again.
 # Hitting an unlit target just scores 500 points.
@@ -72,7 +81,8 @@ event_player:
       - lit_target_hit
       
       
-# Just one slide that will display briefly when the kickback is active      
+# Just one slide that will display briefly when we get all the targets   
+# TODO - the other things that this is supposed to do   
 slide_player:
    lit_target_hit:
      slide1_6:

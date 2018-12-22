@@ -1,9 +1,21 @@
 #config_version=5
 
+
+#      __  ___          __          __                  
+#     /  |/  /___  ____/ /__  _    / /_  ____ _________ 
+#    / /|_/ / __ \/ __  / _ \(_)  / __ \/ __ `/ ___/ _ \
+#   / /  / / /_/ / /_/ /  __/    / /_/ / /_/ (__  )  __/
+#  /_/  /_/\____/\__,_/\___(_)  /_.___/\__,_/____/\___/ 
+#                                                       
+
+# All the basic things that the game needs to handle when a ball is in play.
+# TODO - move the TOMCAT target handling into it's own mode
+
 mode:
    start_events: ball_starting
    priority: 100
 
+# Some scoring which is independant of the mode we're in
 variable_player:
     s_outlaneRight_active:
        score: 5000
@@ -27,7 +39,7 @@ variable_player:
        score: 100
        
 
-
+# Need to switch the flippers on and off (System 11!)
 event_player:
    mode_base_started:
       - flipper_on
@@ -85,7 +97,9 @@ slide_player:
             text: TOMCAT
             font_size: 15
             color: blue
-        
+
+# The rest of this handles the TOMCAT targets
+# TODO - move to own mode and comment properly        
 shots:
   tomcat_t:
     switches: s_lowerLeftT s_upperLeftT
@@ -135,13 +149,5 @@ shot_groups:
    tomcat: 
       shots: tomcat_t tomcat_o tomcat_m tomcat_c tomcat_a tomcat_second_t 
       restart_events: tomcat_lit_complete
-
-         
-show_player:
-   mode_base_started:
-      flash:
-         speed: 4
-         show_tokens:
-            lights: l_flyAgain
 
         

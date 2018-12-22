@@ -1,5 +1,14 @@
 #config_version=5
 
+
+#      __  ___          __          __                          
+#     /  |/  /___  ____/ /__  _    / /_  ____  ____  __  _______
+#    / /|_/ / __ \/ __  / _ \(_)  / __ \/ __ \/ __ \/ / / / ___/
+#   / /  / / /_/ / /_/ /  __/    / /_/ / /_/ / / / / /_/ (__  ) 
+#  /_/  /_/\____/\__,_/\___(_)  /_.___/\____/_/ /_/\__,_/____/  
+#                                                               
+
+# Rides on the standard bonus mode handling supplied by MPF
 mode_settings:
    display_delay_ms: 1s
    hurry_up_delay_ms: 0

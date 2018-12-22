@@ -1,4 +1,14 @@
 #config_version=5
+
+
+#      __  ___          __                                       
+#     /  |/  /___  ____/ /__  _    ________  ____________  _____ 
+#    / /|_/ / __ \/ __  / _ \(_)  / ___/ _ \/ ___/ ___/ / / / _ \
+#   / /  / / /_/ / /_/ /  __/    / /  /  __(__  ) /__/ /_/ /  __/
+#  /_/  /_/\____/\__,_/\___(_)  /_/   \___/____/\___/\__,_/\___/ 
+#                                                                
+
+
 # This mode handles the kickback called 'Rescue' in the left outlane. 
 # The machine has an autofire coil defined (see kickback.yaml) which is enabled with event 
 # rescue_enabled and switched off with event rescue_off
