@@ -5,17 +5,47 @@ mode_settings:
    hurry_up_delay_ms: 0
    bonus_entries:
     - event: base_bonus
-      score: 1000
-      player_score_entry: bonus_score
+      score: 1000 * current_player.bonus_score
 
 # Just one slide that will display briefly when the kickback is active      
 slide_player:
+   bonus_start:
+     slide_bonus:
+        target: dmd
+        widgets:
+          - type: text
+            text: END OF BALL BONUS
+            font_size: 15
+            color: white 
    base_bonus:
      slide_bonus:
         target: dmd
-        expire: 1s
         widgets:
           - type: text
-            text: BONUS (bonus_score)
+            text: BONUS (score)
             font_size: 15
             color: white      
+   bonus_subtotal:
+     slide_bonus:
+        target: dmd
+        widgets:
+          - type: text
+            text: BONUS (score)
+            font_size: 15
+            color: white      
+   bonus_multiplier:
+     slide_mulitplier:
+        target: dmd
+        widgets:
+          - type: text
+            text: X (multiplier)
+            font_size: 15
+            color: white         
+   bonus_total:
+     slide_total:
+        target: dmd
+        widgets:
+          - type: text
+            text: TOTAL (score)
+            font_size: 15
+            color: white                  

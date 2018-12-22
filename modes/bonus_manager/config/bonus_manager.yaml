@@ -11,6 +11,9 @@ variable_player:
       bonus_score:
          action: set
          int: 0
+      bonus_multiplier:
+         action: set
+         int: 2
    add_to_bonus:
       bonus_score: 1
 
