@@ -12,6 +12,10 @@ shows:
    lamp_on:
       - lights:
            (lamp): on
+   lamp_blink:
+      - lights:
+           (lamp): on
+        duration: 0.5s
    lamp_handler:
       - lights:
             (lamp): (state)

@@ -1,10 +1,11 @@
 #config_version=5
 
+# This is the kickback in the left outlane.  Processing is handled by the rescue mode (see rescue.yaml)
 autofire_coils:
    rescue_kickback:
       coil: c_rescueKickBack
       switch: s_outlaneLeft
       enable_events: rescue_enabled
-      debug: true
-      ball_search_order: 0
+      debug: false
+      ball_search_order: 0 # ball can't get stuck here
       disable_events: rescue_off

@@ -32,15 +32,10 @@ settings:
 modes:
    - base
    - rescue
+   - targets1_6
 
 
-#displays:
-#   default:
-#      width: 128
-#      height: 32
-      
 
-      
 slides:
    welcome_slide:
       widgets:
@@ -49,14 +44,6 @@ slides:
            font_size: 50
            color: red
 
-
-
-
-   
-   #init_done.1: welcome_slide2
-
-   
-        
 
 
 virtual_platform_start_active_switches:

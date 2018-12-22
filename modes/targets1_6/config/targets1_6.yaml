@@ -1,0 +1,120 @@
+#config_version=5
+
+# This mode handles the targets numbered 1-6 in the centre of the playfield.
+# The targets are lit one at a time, moving from 1 through to 6 and then back again.
+# Hitting an unlit target just scores 500 points.
+# Hitting the lit target scores 10000
+# TODO: hitting a lit target lights the bonus light in the orbit, also the 1k on the orbit spinner
+
+mode:
+   start_events: ball_starting
+   priority: 100
+
+variable_player:
+   generic1_6_default_hit:
+      score: 500
+   lit_target_hit:
+      score: 9500 # plus the 500 for the generic hit for 10000 total
+   target_1_is_lit:
+      lit_target:
+         action: set
+         int: 1
+   target_2_is_lit:
+      lit_target:
+         action: set
+         int: 2
+   target_3_is_lit:
+      lit_target:
+         action: set
+         int: 3
+   target_4_is_lit:
+      lit_target:
+         action: set
+         int: 4
+   target_5_is_lit:
+      lit_target:
+         action: set
+         int: 5
+   target_6_is_lit:
+      lit_target:
+         action: set
+         int: 6
+
+shots:
+  generic1_6:
+    switches: s_target1 s_target2 s_target3 s_target4 s_target5 s_target6
+    restart_events: generic1_6_default_hit
+
+event_player:
+   timer_cycle1_6_tick{device.timers.cycle1_6.ticks==1}: # hit the right target and it's lit
+      - target_1_is_lit
+   timer_cycle1_6_tick{device.timers.cycle1_6.ticks==2 or device.timers.cycle1_6.ticks==10}: # hit the right target and it's lit
+      - target_2_is_lit
+   timer_cycle1_6_tick{device.timers.cycle1_6.ticks==3 or device.timers.cycle1_6.ticks==9}: # hit the right target and it's lit
+      - target_3_is_lit
+   timer_cycle1_6_tick{device.timers.cycle1_6.ticks==4 or device.timers.cycle1_6.ticks==8}: # hit the right target and it's lit
+      - target_4_is_lit
+   timer_cycle1_6_tick{device.timers.cycle1_6.ticks==5 or device.timers.cycle1_6.ticks==7}: # hit the right target and it's lit
+      - target_5_is_lit
+   timer_cycle1_6_tick{device.timers.cycle1_6.ticks==6}: # hit the right target and it's lit
+      - target_6_is_lit
+   s_target1_active{current_player.lit_target==1}:
+      - lit_target_hit
+   s_target2_active{current_player.lit_target==2}:
+      - lit_target_hit
+   s_target3_active{current_player.lit_target==3}:
+      - lit_target_hit
+   s_target4_active{current_player.lit_target==4}:
+      - lit_target_hit
+   s_target5_active{current_player.lit_target==5}:
+      - lit_target_hit
+   s_target6_active{current_player.lit_target==6}:
+      - lit_target_hit
+      
+      
+# Just one slide that will display briefly when the kickback is active      
+slide_player:
+   lit_target_hit:
+     slide1_6:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: GOT 1-6!
+            font_size: 15
+            color: white      
+
+show_player:
+   target_1_is_lit:
+      on:
+         show_tokens:
+            lights: l_target1      
+   target_2_is_lit:
+      on:
+         show_tokens:
+            lights: l_target2      
+   target_3_is_lit:
+      on:
+         show_tokens:
+            lights: l_target3      
+   target_4_is_lit:
+      on:
+         show_tokens:
+            lights: l_target4      
+   target_5_is_lit:
+      on:
+         show_tokens:
+            lights: l_target5      
+   target_6_is_lit:
+      on:
+         show_tokens:
+            lights: l_target6      
+      
+timers:
+   # Provides the tick for the moving target
+   cycle1_6:
+      start_value: 1
+      end_value: 11
+      direction: up
+      start_running: true
+      restart_on_complete: true

@@ -1,6 +1,6 @@
 events:
   game_ended: 15
-  game_started: 197
+  game_started: 213
 player:
   score:
     average: 0.0
@@ -17,6 +17,7 @@ player:
     - 0
     total: 15
 shots:
+  generic1_6: 59
   leftRescue: 140
   lower_left_t: 8
   rightRescue: 145
@@ -63,7 +64,7 @@ switches:
   s_lowerRightC: 8
   s_lowerRightT: 19
   s_midLeftEject: 9
-  s_midRightEject: 151
+  s_midRightEject: 165
   s_middleEject: 0
   s_middleRampMade: 6
   s_outhole: 113
@@ -74,17 +75,17 @@ switches:
   s_rightEject: 12
   s_rightRescue: 171
   s_right_inlane: 4
-  s_shooter: 252
+  s_shooter: 267
   s_slamTilt: 0
   s_slingL: 25
   s_slingR: 23
   s_spinner: 0
   s_start: 0
   s_startButton: 17
-  s_target1: 3
-  s_target2: 4
-  s_target3: 4
-  s_target4: 1
+  s_target1: 41
+  s_target2: 21
+  s_target3: 6
+  s_target4: 3
   s_target5: 1
   s_target6: 1
   s_tilt: 0
