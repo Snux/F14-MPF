@@ -31,6 +31,7 @@ variable_player:
       kickback_status:
          action: set
          string : ON
+      score: 9500 # will get the other 500 from the base mode
    rescue_grace:
       kickback_status:
          action: set

@@ -1,0 +1,21 @@
+#config_version=5
+
+mode_settings:
+   display_delay_ms: 1s
+   hurry_up_delay_ms: 0
+   bonus_entries:
+    - event: base_bonus
+      score: 1000
+      player_score_entry: bonus_score
+
+# Just one slide that will display briefly when the kickback is active      
+slide_player:
+   base_bonus:
+     slide_bonus:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: BONUS (bonus_score)
+            font_size: 15
+            color: white      

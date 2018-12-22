@@ -5,8 +5,27 @@ mode:
    priority: 100
 
 variable_player:
+    s_outlaneRight_active:
+       score: 5000
+    s_outlaneLeft_active:
+       score: 5000
+    s_inlaneLeft_active:
+       score: 1000
     s_inlaneRight_active:
-        score: 100
+       score: 1000
+    s_rightRescue_active:  # rescue mode will award additional 
+       score: 500
+    s_leftRescue_active:
+       score: 500
+    s_slingL_active:
+       score: 10
+    s_slingR_active:
+       score: 10
+    tomcat_flashing_hit:
+       score: 1000
+    tomcat_lit_hit:
+       score: 100
+       
 
 
 event_player:
@@ -50,7 +69,7 @@ slide_player:
             font_name: fixed_01
           - type: text
             color: orange
-            text: RESCUE (kickback_status)
+            text: BONUS (bonus_score)
             y: 18
             x: 1
             anchor_x: left
@@ -124,7 +143,5 @@ show_player:
          speed: 4
          show_tokens:
             lights: l_flyAgain
-      blink:
-         show_tokens:
-            lamp: l_bonus16K
+
         

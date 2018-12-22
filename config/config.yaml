@@ -18,6 +18,13 @@ player_vars:
    kickback_status:
       initial_value: OFF
       value_type: str
+   bonus_score:
+      initial_value: 0
+   lit_target:
+      initial_value: 1
+   bonus_string:
+      value_type: str
+      initial_value: 
 
 settings:
    tomcat_spot_both:
@@ -33,18 +40,8 @@ modes:
    - base
    - rescue
    - targets1_6
-
-
-
-slides:
-   welcome_slide:
-      widgets:
-         - type: text
-           text: PINBALL!
-           font_size: 50
-           color: red
-
-
+   - bonus
+   - bonus_manager
 
 virtual_platform_start_active_switches:
    - s_trough1
@@ -52,17 +49,11 @@ virtual_platform_start_active_switches:
    - s_trough3
    - s_trough4
 
-      
-
-      
-      
+     
 playfields:
    playfield:
        default_source_device: bd_plunger_lane
        tags: default
-
-
-
       
 keyboard:
    z:
