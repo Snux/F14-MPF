@@ -1,0 +1,151 @@
+#config_version=5
+
+
+#      __  ___          __                     __    _ __ 
+#     /  |/  /___  ____/ /__  _    ____  _____/ /_  (_) /_
+#    / /|_/ / __ \/ __  / _ \(_)  / __ \/ ___/ __ \/ / __/
+#   / /  / / /_/ / /_/ /  __/    / /_/ / /  / /_/ / / /_  
+#  /_/  /_/\____/\__,_/\___(_)   \____/_/  /_.___/_/\__/  
+#                                                         
+
+# Runs during game play and handles everything to do with the top orbit.
+#
+# The orbit contains a spinner which scores 10 unless lit when it scores 2000
+
+# Both sides of the orbit have a bonux multiplier insert.  These can be lit by
+# A - the inlanes - left inlane lights the right multiplier, right inlane lights the left.
+# B - hitting the lit 1-6 target (check the targets1_6 mode) lights both multipliers.
+# Both multipliers flash when active and then expire after 10 seconds.
+
+# To score the multiplier, the orbit shot needs to complete - there is a switch at both ends.
+
+# This mode will just post the event that the multiplier should be increased, this is
+# handled in the bonus_manager mode.
+
+# TODO - maybe move all this into the bonus_manager, it's pretty much all bonus related anyway
+
+mode:
+   start_events: ball_starting
+   priority: 100
+   
+# A couple of sequence shots defined that will catch when the ball does a proper orbit
+# instead of entering and then rolling back out again
+
+sequence_shots:  
+   orbit_left_to_right:
+      switch_sequence: s_bonusXLeft, s_bonusXRight 
+      sequence_timeout: 1.5s # quick timeout as it's a short fast loop
+   orbit_right_to_left:
+      switch_sequence: s_bonusXRight, s_bonusXLeft
+      sequence_timeout: 1.5s # quick timeout as it's a short fast loop
+
+# Turn events (including those from other modes) into something easier to read
+event_player:
+   lit_1_6_target_hit: # from targets1_6 mode - lights both multipliers and the spinner for 2K
+      - light_right_multiplier
+      - light_left_multiplier
+      - light_2k_spinner
+   s_inlaneLeft_active:
+      - light_right_multiplier
+   s_inlaneRight_active:
+      - light_left_multiplier
+   orbit_left_to_right_hit{current_player.left_multiplier_lit=='True'}:    # will be handled by bonus_manager
+      - add_to_multiplier
+   orbit_right_to_left_hit{current_player.right_multiplier_lit=='True'}:   # will be handled by bonus_manager
+      - add_to_multiplier
+
+# Track which of the multipliers are lit
+variable_player:
+   mode_orbit_started:
+      spinner_2K_lit:
+         action: set
+         string: False
+      right_multiplier_lit:
+         action: set
+         string: False
+      left_multiplier_lit:
+         action: set
+         string: False
+   light_right_multiplier:
+      right_multiplier_lit:
+         action: set
+         string: True
+   timer_right_multiplier_complete:
+      right_multiplier_lit:
+         action: set
+         string: True
+   light_left_multiplier:
+      left_multiplier_lit:
+         action: set
+         string: True
+   timer_left_multiplier_complete:
+      left_multiplier_lit:
+         action: set
+         string: True
+   light_2k_spinner:
+      spinner_2K_lit:
+         action: set
+         string: True
+   s_spinner_active{current_player.spinner_2K_lit=='True'}:
+      score: 2000
+   s_spinner_active{current_player.spinner_2K_lit=='False'}:
+      score: 10
+         
+
+# Couple of timers, one for each multiplier insert
+# Just make one big tick, we don't need a countdown
+timers:
+   right_multiplier:
+      start_value: 0
+      end_value: 1
+      tick_interval: 10s
+      direction: up
+      start_running: false
+      control_events:
+         - action: restart
+           event: light_right_multiplier
+   left_multiplier:
+      start_value: 0
+      end_value: 1
+      tick_interval: 10s
+      direction: up
+      start_running: false
+      control_events:
+         - action: restart
+           event: light_left_multiplier
+           
+show_player:
+   timer_right_multiplier_started:
+      flash:
+         key: rightside
+         speed: 10
+         show_tokens:
+            lights: l_bonusXRight
+   timer_right_multiplier_complete:
+      off:
+         key: rightside
+         show_tokens:
+            lights: l_bonusXRight
+   timer_left_multiplier_started:
+      flash:
+         key: leftside
+         speed: 10
+         show_tokens:
+            lights: l_bonusXLeft
+   timer_left_multiplier_complete:
+      off:
+         key: leftside
+         show_tokens:
+            lights: l_bonusXLeft
+   player_spinner_2K_lit{current_player.spinner_2K_lit=='True'}:
+      on:
+         key: spinner
+         show_tokens:
+            lights: l_spinner2K        
+   player_spinner_2K_lit{current_player.spinner_2K_lit=='False'}:
+      off:
+         key: spinner
+         show_tokens:
+            lights: l_spinner2K
+            
+           

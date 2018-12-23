@@ -68,17 +68,17 @@ event_player:
    timer_cycle1_6_tick{device.timers.cycle1_6.ticks==6}: # hit the right target and it's lit
       - target_6_is_lit
    s_target1_active{current_player.lit_target==1}:
-      - lit_target_hit
+      - lit_1_6_target_hit
    s_target2_active{current_player.lit_target==2}:
-      - lit_target_hit
+      - lit_1_6_target_hit
    s_target3_active{current_player.lit_target==3}:
-      - lit_target_hit
+      - lit_1_6_target_hit
    s_target4_active{current_player.lit_target==4}:
-      - lit_target_hit
+      - lit_1_6_target_hit
    s_target5_active{current_player.lit_target==5}:
-      - lit_target_hit
+      - lit_1_6_target_hit
    s_target6_active{current_player.lit_target==6}:
-      - lit_target_hit
+      - lit_1_6_target_hit
       
       
 # Just one slide that will display briefly when we get all the targets   

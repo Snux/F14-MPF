@@ -1,6 +1,6 @@
 events:
   game_ended: 16
-  game_started: 262
+  game_started: 278
 player:
   score:
     average: 3937.5
@@ -17,8 +17,8 @@ player:
     - 0
     total: 16
 shots:
-  generic1_6: 61
-  inc_bonus: 1051
+  generic1_6: 102
+  inc_bonus: 1198
   leftRescue: 140
   lower_left_t: 8
   rightRescue: 145
@@ -31,13 +31,13 @@ shots:
   tomcat_a: 1
   tomcat_c: 1
   tomcat_m: 5
-  tomcat_o: 6
+  tomcat_o: 7
   tomcat_second_t: 1
-  tomcat_t: 7
+  tomcat_t: 8
   upper_left_t: 5
 switches:
-  s_bonusXLeft: 59
-  s_bonusXRight: 7
+  s_bonusXLeft: 64
+  s_bonusXRight: 11
   s_coinCenter: 0
   s_coinLeft: 0
   s_coinRight: 0
@@ -51,49 +51,49 @@ switches:
   s_exitSys11: 0
   s_flipperLwL: 37
   s_flipperLwR: 63
-  s_inlaneLeft: 14
+  s_inlaneLeft: 15
   s_inlaneRight: 106
   s_jetBumper: 20
   s_leftRescue: 141
   s_left_inlane: 4
   s_lowerEject: 0
   s_lowerLeftM: 10
-  s_lowerLeftO: 13
-  s_lowerLeftT: 36
+  s_lowerLeftO: 14
+  s_lowerLeftT: 37
   s_lowerRampMade: 12
   s_lowerRightA: 17
   s_lowerRightC: 8
   s_lowerRightT: 19
   s_midLeftEject: 9
-  s_midRightEject: 224
+  s_midRightEject: 240
   s_middleEject: 0
   s_middleRampMade: 6
-  s_outhole: 145
+  s_outhole: 150
   s_outlaneLeft: 223
-  s_outlaneRight: 1081
+  s_outlaneRight: 1228
   s_plunger: 1
-  s_rampEntry: 256
+  s_rampEntry: 259
   s_rightEject: 12
   s_rightRescue: 171
   s_right_inlane: 4
-  s_shooter: 328
+  s_shooter: 348
   s_slamTilt: 0
   s_slingL: 25
-  s_slingR: 23
-  s_spinner: 0
+  s_slingR: 25
+  s_spinner: 61
   s_start: 0
   s_startButton: 17
-  s_target1: 41
-  s_target2: 23
-  s_target3: 6
-  s_target4: 3
-  s_target5: 1
+  s_target1: 42
+  s_target2: 26
+  s_target3: 35
+  s_target4: 10
+  s_target5: 3
   s_target6: 1
   s_tilt: 0
-  s_trough1: 87
-  s_trough2: 170
-  s_trough3: 32
-  s_trough4: 147
+  s_trough1: 92
+  s_trough2: 172
+  s_trough3: 33
+  s_trough4: 149
   s_trough_centre: 0
   s_trough_left: 0
   s_trough_right: 0
@@ -105,7 +105,7 @@ switches:
   s_upperLeftM: 0
   s_upperLeftO: 2
   s_upperLeftT: 14
-  s_upperRampMade: 63
+  s_upperRampMade: 64
   s_upperRightA: 22
   s_upperRightC: 30
   s_upperRightT: 5

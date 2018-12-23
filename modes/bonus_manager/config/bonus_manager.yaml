@@ -12,7 +12,7 @@
 # Counting it is simple, but displaying it is tricky as there are 7 lamps on the playfield used to
 # show it.  1K, 2K, 4K, 8K, 16K, 32K and 64K.  You add up all the lit lamps to determine the total
 # Internally we track the bonus as a number between 0 and 127, it gets multplied by 1000 before being awarded
-# TODO : Bonus multiplier handling.
+
 
  
 
@@ -27,9 +27,11 @@ variable_player:
          int: 0
       bonus_multiplier:
          action: set
-         int: 2
+         int: 1
    add_to_bonus:
       bonus_score: 1
+   add_to_multiplier{current_player.bonus_multiplier < 8}:
+      bonus_multiplier: 1
 
 # Use a simple local event so long as we didn't get to 127 yet
 event_player:
@@ -111,7 +113,41 @@ show_player:
          key: 64K
          show_tokens: 
             light: l_bonus64K
-  
+  player_bonus_multiplier{value==2}:
+      on:
+         key: multiplier
+         show_tokens:
+            lights: l_bonus2X
+  player_bonus_multiplier{value==3}:
+      on:
+         key: multiplier
+         show_tokens:
+            lights: l_bonus2X l_bonus3X
+  player_bonus_multiplier{value==4}:
+      on:
+         key: multiplier
+         show_tokens:
+            lights: l_bonus2X l_bonus3X l_bonus4X
+  player_bonus_multiplier{value==5}:
+      on:
+         key: multiplier
+         show_tokens:
+            lights: l_bonus2X l_bonus3X l_bonus4X l_bonus5X
+  player_bonus_multiplier{value==6}:
+      on:
+         key: multiplier
+         show_tokens:
+            lights: l_bonus2X l_bonus3X l_bonus4X l_bonus5X l_bonus6X
+  player_bonus_multiplier{value==7}:
+      on:
+         key: multiplier
+         show_tokens:
+            lights: l_bonus2X l_bonus3X l_bonus4X l_bonus5X l_bonus6X l_bonus7X
+  player_bonus_multiplier{value==8}:
+      on:
+         key: multiplier
+         show_tokens:
+            lights: l_bonus2X l_bonus3X l_bonus4X l_bonus5X l_bonus6X l_bonus7X l_bonus8X
 
             
 counters:

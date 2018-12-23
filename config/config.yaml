@@ -22,9 +22,16 @@ player_vars:
       initial_value: 0
    lit_target:
       initial_value: 1
-   bonus_string:
+   left_multiplier_lit:
+      initial_value: False
       value_type: str
-      initial_value: 
+   right_multiplier_lit:
+      initial_value: False
+      value_type: str
+   spinner_2K_lit:
+      initial_value: False
+      value_type: str
+
 
 settings:
    tomcat_spot_both:
@@ -42,6 +49,7 @@ modes:
    - targets1_6
    - bonus
    - bonus_manager
+   - orbit
 
 virtual_platform_start_active_switches:
    - s_trough1
