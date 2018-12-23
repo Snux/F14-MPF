@@ -1,6 +1,6 @@
 events:
   game_ended: 16
-  game_started: 278
+  game_started: 279
 player:
   score:
     average: 3937.5
@@ -65,7 +65,7 @@ switches:
   s_lowerRightC: 8
   s_lowerRightT: 19
   s_midLeftEject: 9
-  s_midRightEject: 240
+  s_midRightEject: 241
   s_middleEject: 0
   s_middleRampMade: 6
   s_outhole: 150
@@ -76,7 +76,7 @@ switches:
   s_rightEject: 12
   s_rightRescue: 171
   s_right_inlane: 4
-  s_shooter: 348
+  s_shooter: 349
   s_slamTilt: 0
   s_slingL: 25
   s_slingR: 25

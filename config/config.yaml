@@ -6,6 +6,7 @@ config:
    - devices.yaml
    - kickback.yaml
    - simple_shows.yaml
+   - sounds.yaml
 #   - smart_matrix.yaml
 #   - real_dmd.yaml
 

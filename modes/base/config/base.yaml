@@ -150,4 +150,10 @@ shot_groups:
       shots: tomcat_t tomcat_o tomcat_m tomcat_c tomcat_a tomcat_second_t 
       restart_events: tomcat_lit_complete
 
+sound_player:
+   mode_base_started:
+      main_theme:
+         action: play
+         loops: -1
+      
         
