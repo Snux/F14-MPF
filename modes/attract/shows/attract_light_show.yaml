@@ -1,17 +1,17 @@
 #show_version=5
 - duration: 1
   lights:
-    l_bonus2X: 0
-    l_bonus4X: ff
+    radar: 0
+    gi: green
 - duration: 1
   lights:
-    l_bonus4X: 0
-    l_bonus2X: ff
+    gi: 0
+    radar: red
 - duration: 1
   lights:
-    l_bonus2X: 0
-    l_bonus3X: ff
+    radar: 0
+    l_target2: green
 - duration: 1
   lights:
-    l_bonus3X: 0
-    l_bonus2X: ff
+    l_target2: 0
+    radar: red

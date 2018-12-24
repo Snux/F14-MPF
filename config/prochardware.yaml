@@ -13,6 +13,7 @@ hardware:
     platform: p_roc
     driverboards: wpc
     coils: snux
+    lights: fadecandy
 
 system11:
     ac_relay_delay_ms: 75
@@ -23,199 +24,287 @@ snux:
     diag_led_driver: c_diagLED
     platform:
 
+light_stripes:
+   gi_lamp:
+      number_start: 128
+      count: 40
+      light_template:
+         tags: gi
+         platform: fadecandy
+   radar:
+      number_start: 64
+      count: 10
+      light_template:
+         tags: radar
+         type: grb
+         platform: fadecandy
+
 lights:
     l_lightLockOn:
         number: L11
         label: 'Lites Lock On'
+        platform: p_roc
     l_lightRelease:
         number: L12
         label: 'Lites Release'
+        platform: p_roc
     l_blueSpecial:
         number: L13
         label: 'Hot Streak'
+        platform: p_roc
     l_flyAgain:
         number: L14
         label: 'Fly Again'
+        platform: p_roc
     l_leftRescue:
         number: L15
         label: 'Left Rescue'
+        platform: p_roc
     l_kill:
-        number: L16
+        number: 7
         label: 'Centre Kill'
+        platform: fadecandy
+        type: grb
     l_rightRescue:
         number: L17
         label: 'Right Rescue'
+        platform: p_roc
     l_kickBack:
         number: L18
         label: 'Rescue'
+        platform: p_roc
     l_kill1:
-        number: L21
+        number: 0
         label: 'Alpha Kill'
+        platform: fadecandy
     l_kill2:
-        number: L22
+        number: 1
         label: 'Bravo Kill'
+        platform: fadecandy
     l_kill3:
-        number: L23
+        number: 2
         label: 'Charlie Kill'
+        platform: fadecandy
     l_kill4:
-        number: L24
+        number: 3
         label: 'Delta Kill'
+        platform: fadecandy
     l_kill5:
-        number: L25
+        number: 4
         label: 'Echo Kill'
+        platform: fadecandy 
     l_kill6:
-        number: L26
+        number: 5
         label: 'Fox Kill'
+        platform: fadecandy
     l_kill7:
-        number: L27
+        number: 6
         label: 'Golf Kill'
+        platform: fadecandy
     l_insurance:
         number: L28
         label: 'Insurance'
+        platform: p_roc
     l_bonus1K:
         number: L31
         label: '1K'
+        platform: p_roc
     l_bonus2K:
         number: L32
         label: '2K'
+        platform: p_roc
     l_bonus4K:
         number: L33
         label: '4K'
+        platform: p_roc
     l_bonus8K:
         number: L34
         label: '8K'
+        platform: p_roc
     l_bonus16K:
         number: L35
         label: '16K'
+        platform: p_roc
     l_bonus32K:
         number: L36
         label: '32K'
+        platform: p_roc
     l_bonus64K:
         number: L37
         label: '64K'
+        platform: p_roc
     l_special:
         number: L38
         label: 'Special'
+        platform: p_roc
     l_bonus2X:
         number: L41
         label: '2X'
+        platform: p_roc
     l_bonus3X:
         number: L42
         label: '3X'
+        platform: p_roc
     l_bonus4X:
         number: L43
         label: '4X'
+        platform: p_roc
     l_bonus5X:
         number: L44
         label: '5X'
+        platform: p_roc
     l_bonus6X:
         number: L45
         label: '6X'
+        platform: p_roc
     l_bonus7X:
         number: L46
         label: '7X'
+        platform: p_roc
     l_bonus8X:
         number: L47
         label: '8X'
+        platform: p_roc
     l_bonusXLeft:
         number: L48
         label: 'Bonus X Left'
+        platform: p_roc
     l_lowerLeftT:
         number: L51
         label: 'Lower Left T'
+        platform: p_roc
     l_lowerLeftO:
         number: L52
         label: 'Lower Left O'
+        platform: p_roc
     l_lowerLeftM:
         number: L53
         label: 'Lower Left M'
+        platform: p_roc
     l_lowerRightT:
         number: L54
         label: 'Lower Right T'
+        platform: p_roc
     l_lowerRightA:
         number: L55
         label: 'Lower Right A'
+        platform: p_roc
     l_lowerRightC:
         number: L56
         label: 'Lower Right C'
+        platform: p_roc
     l_inLanes:
         number: L57
         label: 'Inlanes x 2'
+        platform: p_roc
     l_landing:
         number: L58
         label: 'Landing'
+        platform: p_roc
     l_target3:
-        number: L61
+        number: 12
         label: 'Target - 3'
+        platform: fadecandy
+        type: grb
     l_target2:
-        number: L62
+        number: 13
         label: 'Target - 2'
+        platform: fadecandy
+        type: grb
     l_target1:
-        number: L63
+        number: 14
         label: 'Target - 1'
+        platform: fadecandy
+        type: grb
     l_target4:
-        number: L64
+        number: 11
         label: 'Target - 4'
+        platform: fadecandy
+        type: grb
     l_target5:
-        number: L65
+        number: 8
         label: 'Target - 5'
+        platform: fadecandy
+        type: grb
     l_target6:
-        number: L66
+        number: 10
         label: 'Target - 6'
+        platform: fadecandy
+        type: grb
     l_release:
-        number: L67
+        number: 9
         label: 'Release'
+        platform: fadecandy
+        type: grb
     l_lockOn:
         number: L68
         label: 'Lock On'
+        platform: p_roc
     l_upperLeftT:
         number: L71
         label: 'Upper Left T'
+        platform: p_roc
     l_upperLeftO:
         number: L72
         label: 'Upper Left O'
+        platform: p_roc
     l_upperLeftM:
         number: L73
         label: 'Upper Left M'
+        platform: p_roc
     l_upperRightT:
         number: L74
         label: 'Upper Right T'
+        platform: p_roc
     l_upperRightA:
         number: L75
         label: 'Upper Right A'
+        platform: p_roc
     l_upperRightC:
         number: L76
         label: 'Upper Right C'
+        platform: p_roc
     l_bonusXRight:
         number: L77
         label: 'Bonus X Right'
+        platform: p_roc
     l_spinner2K:
         number: L78
         label: 'Spinner 2K'
+        platform: p_roc
     l_upperLock:
         number: L81
         label: 'Upper Lock'
+        platform: p_roc
     l_middleLock:
         number: L82
         label: 'Centre Lock'
+        platform: p_roc
     l_lowerLock:
         number: L83
         label: 'Lower Lock'
+        platform: p_roc
     l_upperLanding:
         number: L84
         label: 'Upper Landing'
+        platform: p_roc
     l_middleLanding:
         number: L85
         label: 'Centre Landing'
+        platform: p_roc
     l_lowerLanding:
         number: L86
         label: 'Lower Landing'
+        platform: p_roc
     l_ripOff:
-        number: L87
+        number: 15
         label: 'Rip Off'
+        platform: fadecandy
+        type: grb
     l_extraBall:
         number: L88
         label: 'Extra Ball'
+        platform: p_roc
 
 
 coils:
