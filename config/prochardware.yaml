@@ -8,6 +8,10 @@
 #  \____/\____/_/ /_/_/ /_/\__, (_)  / .___/_/   \____/\___/_/ /_/\__,_/_/   \__,_/ |__/|__/\__,_/_/   \___/ 
 #                         /____/    /_/                                                                      
 
+# This machine is a bit of a hybrid.  It's a Sys11 controlled by a P-ROC with one of my Sys11 driver boards.
+# Most of the lights are just the matrix driven ones, but where there are clear inserts these have RGB (actually GRB) LEDs
+# (the nice little ones from FAST) controlled by a Fadecandy.  The GI is also a string of RGB lamps, and the central
+# 'radar' insert has a RGB LED ring underneath it (instead of the green GI lamps that it originally has)
 
 hardware:
     platform: p_roc
@@ -27,17 +31,18 @@ snux:
 light_stripes:
    gi_lamp:
       number_start: 128
-      count: 40
+      count: 37
       light_template:
          tags: gi
          platform: fadecandy
    radar:
       number_start: 64
-      count: 10
+      count: 16
       light_template:
          tags: radar
          type: grb
          platform: fadecandy
+         default_on_color: green
 
 lights:
     l_lightLockOn:
@@ -368,7 +373,7 @@ coils:
         label: 'Centre Left Eject'
     c_gi:
         number: C11
-        label: 'General Illum'
+        label: 'General Illum' # Not used on my machine because using RGB
     c_yagovKickBack:
         number: C12
         label: 'Yagov Kickback'
