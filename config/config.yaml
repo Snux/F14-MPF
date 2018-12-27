@@ -84,6 +84,7 @@ modes:
    - bonus
    - bonus_manager
    - orbit
+   - yagov
 
 virtual_platform_start_active_switches:
    - s_trough1

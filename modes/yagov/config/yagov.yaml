@@ -1,0 +1,130 @@
+#config_version=5
+
+#      __  ___          __                                      
+#     /  |/  /___  ____/ /__  _    __  ______ _____ _____ _   __
+#    / /|_/ / __ \/ __  / _ \(_)  / / / / __ `/ __ `/ __ \ | / /
+#   / /  / / /_/ / /_/ /  __/    / /_/ / /_/ / /_/ / /_/ / |/ / 
+#  /_/  /_/\____/\__,_/\___(_)   \__, /\__,_/\__, /\____/|___/  
+#                               /____/      /____/              
+
+# The shot to the Yagov kicker at the top left awards a kill.  Getting all 7 kills lights
+# the extra ball shot.  Each shot to Yagov also awards 5k to the end of ball bonus
+
+
+mode:
+   start_events: ball_starting
+   priority: 100
+   
+   
+# So there are 7 kills to be lit, let's try using a sequence block
+sequences:
+   yagov_block:
+      events:
+         - s_yagov_active
+         - s_yagov_active
+         - s_yagov_active
+         - s_yagov_active
+         - s_yagov_active
+         - s_yagov_active
+         - s_yagov_active
+      events_when_complete: light_extra_ball                  
+
+event_player:
+   s_yagov_active:
+      - increment_bonus_5k # Event is handled by the bonus_manager mode
+
+slide_player:
+   logicblock_yagov_block_hit{step==1}:
+     slide:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: ALPHA KILL
+            font_size: 15
+            color: white               
+   logicblock_yagov_block_hit{step==2}:
+     slide:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: BRAVO KILL
+            font_size: 15
+            color: white               
+   logicblock_yagov_block_hit{step==3}:
+     slide:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: CHARLIE KILL
+            font_size: 15
+            color: white               
+   logicblock_yagov_block_hit{step==4}:
+     slide:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: DELTA KILL
+            font_size: 15
+            color: white               
+   logicblock_yagov_block_hit{step==5}:
+     slide:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: ECHO KILL
+            font_size: 15
+            color: white               
+   logicblock_yagov_block_hit{step==6}:
+     slide:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: FOXTROT KILL
+            font_size: 15
+            color: white               
+   logicblock_yagov_block_hit{step==7}:
+     slide:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: GOLF KILL
+            font_size: 15
+            color: white               
+
+
+show_player:
+   logicblock_yagov_block_hit{step==1}:
+      on:
+         show_tokens:
+            lights: l_kill1
+   logicblock_yagov_block_hit{step==2}:
+      on:
+         show_tokens:
+            lights: l_kill1 l_kill2
+   logicblock_yagov_block_hit{step==3}:
+      on:
+         show_tokens:
+            lights: l_kill1 l_kill2 l_kill3
+   logicblock_yagov_block_hit{step==4}:
+      on:
+         show_tokens:
+            lights: l_kill1 l_kill2 l_kill3 l_kill4                                    
+   logicblock_yagov_block_hit{step==5}:
+      on:
+         show_tokens:
+            lights: l_kill1 l_kill2 l_kill3 l_kill4 l_kill5
+   logicblock_yagov_block_hit{step==6}:
+      on:
+         show_tokens:
+            lights: l_kill1 l_kill2 l_kill3 l_kill4 l_kill5 l_kill6
+   logicblock_yagov_block_hit{step==7}:
+      on:
+         show_tokens:
+            lights: l_kill1 l_kill2 l_kill3 l_kill4 l_kill5 l_kill6 l_kill7                                    

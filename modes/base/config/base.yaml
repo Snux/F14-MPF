@@ -37,6 +37,7 @@ variable_player:
        score: 1000
     tomcat_lit_hit:
        score: 100
+
        
 
 # Need to switch the flippers on and off (System 11!)
@@ -45,6 +46,8 @@ event_player:
       - flipper_on
    mode_base_ended:
       - flipper_off
+   tomcat_hit: # in any state
+       - increment_bonus # handled by bonus_manager
 
       
          

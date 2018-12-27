@@ -13,7 +13,9 @@
 # show it.  1K, 2K, 4K, 8K, 16K, 32K and 64K.  You add up all the lit lamps to determine the total
 # Internally we track the bonus as a number between 0 and 127, it gets multplied by 1000 before being awarded
 
-
+# Since we need to only do something with the bonus if we didn't reach 127 yet, any mode that wants to try and 
+# increment the bonus will raise the event 'increment_bonus' or 'increment_bonus_5k'
+# This mode will then take care of handling that, and will post 'add_to_bonus' internally if bonus does go up
  
 
 mode:
@@ -35,29 +37,33 @@ variable_player:
 
 # Use a simple local event so long as we didn't get to 127 yet
 event_player:
-   inc_bonus_default_hit{current_player.bonus_score < 127}:
+   increment_bonus{current_player.bonus_score < 127}:
       - add_to_bonus
+   inc_bonus_default_hit: # from the shot inc_bonus below
+      - increment_bonus
+   timer_bonus_5k_tick:
+      - increment_bonus
 
 # all the switches that can increment the bonus
 # maybe change this to events later....
 shots:
   inc_bonus: 
-    switches: s_outlaneLeft s_outlaneRight
+    switches: s_outlaneLeft s_outlaneRight 
     restart_events: inc_bonus_default_hit
     
 # Displaying the bonus on the lamps involves a complicated set of counters and shows.  
 # TODO - put more comments in here    
 show_player:
-  player_bonus_score:
+  logicblock_bonus_count_1K_updated{value < 1}:
       off:
-         key: 1K
-         show_tokens: 
-            light: l_bonus1K     
-  player_bonus_score{current_player.bonus_score % 2 == 1}:
-      on:
-         key: 1K
+         key: 2K
          show_tokens: 
             light: l_bonus1K
+  logicblock_bonus_count_1K_updated{value >= 1}:
+      on:
+         key: 2K
+         show_tokens: 
+            light: l_bonus1K            
   logicblock_bonus_count_2K_updated{value < 2}:
       off:
          key: 2K
@@ -154,7 +160,7 @@ counters:
    bonus_count_1K:
       count_events: add_to_bonus
       starting_count: 0
-      count_complete_value: 1
+      count_complete_value: 2
       direction: up
       disable_on_complete: false  
    bonus_count_2K:
@@ -193,3 +199,23 @@ counters:
       count_complete_value: 128
       direction: up        
       disable_on_complete: false      
+
+# Used to add 5k to the bonus.  This is kinda kludgy, but rather than trying to handle the
+# bonus overflowing by various amounts, this timer is used to generate 5 ticks whenever the
+# increment_bonus_5k event is posted.  These ticks each then get handled as a single 'increment_bonus'
+# event in the event_player above      
+timers:
+   bonus_5k:
+      start_value: 0
+      end_value: 5
+      direction: up
+      tick_interval: 10ms
+      control_events:
+         - event: increment_bonus_5k
+           action: start
+         - event: timer_bonus_5k_complete
+           action: stop
+         - event: timer_bonus_5k_complete
+           action: reset
+      start_running: false
+      

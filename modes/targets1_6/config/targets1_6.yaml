@@ -82,7 +82,6 @@ event_player:
       
       
 # Just one slide that will display briefly when we get all the targets   
-# TODO - the other things that this is supposed to do   
 slide_player:
    lit_target_hit:
      slide1_6:
