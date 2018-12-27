@@ -46,8 +46,8 @@ event_player:
       - flipper_on
    mode_base_ended:
       - flipper_off
-   tomcat_hit: # in any state
-       - increment_bonus # handled by bonus_manager
+   tomcat_hit: # in any state, event is from the shot group in this mode
+       - increment_bonus # handled by the bonus_manager mode
 
       
          

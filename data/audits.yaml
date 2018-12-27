@@ -1,6 +1,6 @@
 events:
   game_ended: 17
-  game_started: 294
+  game_started: 303
 player:
   score:
     average: 14509.411764705883
@@ -30,10 +30,10 @@ shots:
   target6: 1
   tomcat_a: 3
   tomcat_c: 3
-  tomcat_m: 9
-  tomcat_o: 10
+  tomcat_m: 11
+  tomcat_o: 11
   tomcat_second_t: 3
-  tomcat_t: 19
+  tomcat_t: 25
   upper_left_t: 5
 switches:
   s_bonusXLeft: 95
@@ -51,21 +51,21 @@ switches:
   s_exitSys11: 0
   s_flipperLwL: 37
   s_flipperLwR: 63
-  s_inlaneLeft: 17
+  s_inlaneLeft: 38
   s_inlaneRight: 115
   s_jetBumper: 26
   s_leftRescue: 144
   s_left_inlane: 4
   s_lowerEject: 0
-  s_lowerLeftM: 14
-  s_lowerLeftO: 17
-  s_lowerLeftT: 46
+  s_lowerLeftM: 16
+  s_lowerLeftO: 18
+  s_lowerLeftT: 52
   s_lowerRampMade: 14
   s_lowerRightA: 18
   s_lowerRightC: 9
   s_lowerRightT: 20
   s_midLeftEject: 9
-  s_midRightEject: 261
+  s_midRightEject: 269
   s_middleEject: 0
   s_middleRampMade: 6
   s_outhole: 165
@@ -76,7 +76,7 @@ switches:
   s_rightEject: 15
   s_rightRescue: 173
   s_right_inlane: 4
-  s_shooter: 372
+  s_shooter: 380
   s_slamTilt: 0
   s_slingL: 32
   s_slingR: 27
@@ -109,5 +109,5 @@ switches:
   s_upperRightA: 23
   s_upperRightC: 31
   s_upperRightT: 6
-  s_vUK: 5
-  s_yagov: 46
+  s_vUK: 22
+  s_yagov: 55

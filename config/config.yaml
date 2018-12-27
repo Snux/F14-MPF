@@ -59,6 +59,8 @@ player_vars:
    spinner_2K_lit:
       initial_value: False
       value_type: str
+   launch_bonus:
+      initial_value: 0
 
 # Turn on the GI and the radar insert
 show_player:
@@ -85,6 +87,7 @@ modes:
    - bonus_manager
    - orbit
    - yagov
+   - hurry_up_right
 
 virtual_platform_start_active_switches:
    - s_trough1
