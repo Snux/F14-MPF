@@ -9,7 +9,7 @@
 
 # The shot to the Yagov kicker at the top left awards a kill.  Getting all 7 kills lights
 # the extra ball shot.  Each shot to Yagov also awards 5k to the end of ball bonus
-
+# TODO - when does this reset?
 
 mode:
    start_events: ball_starting

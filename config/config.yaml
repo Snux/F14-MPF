@@ -69,6 +69,10 @@ show_player:
          show_tokens:
             lights: gi, radar
 
+smart_virtual:
+   simulate_manual_plunger: true
+   simulate_manual_plunger_timeout: 5s
+
 settings:
    tomcat_spot_both:
       label: Spot Both Tomcat Letters
@@ -88,6 +92,7 @@ modes:
    - orbit
    - yagov
    - hurry_up_right
+#   - multiball
 
 virtual_platform_start_active_switches:
    - s_trough1
@@ -98,7 +103,7 @@ virtual_platform_start_active_switches:
 # TODO - actually this isn't the source device, as there are 3 source devices (each of the locks)     
 playfields:
    playfield:
-       default_source_device: bd_plunger_lane
+       default_source_device: bd_lock2
        tags: default
       
 keyboard:

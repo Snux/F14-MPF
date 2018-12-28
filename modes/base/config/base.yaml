@@ -37,6 +37,10 @@ variable_player:
        score: 1000
     tomcat_lit_hit:
        score: 100
+    mode_base_started:
+       launch_bonus:
+          action: set
+          int: 0
 
        
 
@@ -47,7 +51,9 @@ event_player:
    mode_base_ended:
       - flipper_off
    tomcat_hit: # in any state, event is from the shot group in this mode
-       - increment_bonus # handled by the bonus_manager mode
+      - increment_bonus # handled by the bonus_manager mode
+   tomcat_lit_complete:
+      - light_lock_1 
 
       
          

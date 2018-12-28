@@ -26,38 +26,37 @@ ball_devices:
       mechanical_eject: true
       eject_coil: c_autoLaunch
       entrance_count_delay: 1s
-      eject_targets: bd_mid_left_lock, bd_mid_right_lock, bd_lower_right_lock
-   bd_mid_left_lock:
-      ball_switches: s_midLeftEject
-      eject_coil: c_midLeftEject
-   bd_mid_right_lock:
-      ball_switches: s_midRightEject
-      eject_coil: c_midRightEject
-      request_ball_events: load_mid_right_lock
-   bd_lower_right_lock:
-      ball_switches:  s_rightEject
-      eject_coil: c_rightEject
+      eject_targets: bd_lock1, bd_lock2, bd_lock3
+   bd_lock1:
+      ball_switches: s_lock1
+      eject_coil: c_lock1_eject
+   bd_lock2:
+      ball_switches: s_lock2
+      eject_coil: c_lock2_eject
+   bd_lock3:
+      ball_switches:  s_lock3
+      eject_coil: c_lock3_eject
    bd_vuk:
       ball_switches: s_vUK
       eject_coil: c_upKicker
-      eject_targets: bd_mid_left_lock, bd_mid_right_lock, bd_lower_right_lock
+      eject_targets: bd_lock1, bd_lock2, bd_lock3
 
       
 diverters:
    top_diverter:
       activation_coil: c_upperDivertor
       activation_time: 3s
-      activation_switches: s_rampEntry
+      #activation_switches: s_rampEntry
       activate_events: send_to_mid_right_lock
-      targets_when_active: bd_mid_right_lock
-      targets_when_inactive: bd_lower_right_lock
+      targets_when_active: bd_lock2
+      targets_when_inactive: bd_lock1, bd_lock3
       feeder_devices: bd_vuk, bd_plunger_lane
    lower_diverter:
       activation_time: 3s
-      activation_switches: s_rampEntry
+      #activation_switches: s_rampEntry
       activation_coil: c_lowerDivertor
-      targets_when_active: bd_mid_left_lock
-      targets_when_inactive: bd_lower_right_lock
+      targets_when_active: bd_lock1
+      targets_when_inactive: bd_lock3
       feeder_devices: bd_vuk, bd_plunger_lane
       
       

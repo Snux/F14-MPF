@@ -341,7 +341,7 @@ coils:
         label: 'Flasher 4'
         pulse_events: rescue_complete{ state=='lit'}
         default_pulse_ms: 200ms
-    c_midRightEject:
+    c_lock2_eject:
         number: C05a
         label: 'Center Right Eject'
         default_pulse_ms: 200ms
@@ -356,7 +356,7 @@ coils:
     c_flasher6:
         number: C06c
         label: 'Flasher 6'
-    c_rightEject:
+    c_lock3_eject:
         number: C07a
         label: 'Right Eject'
     c_flasher7:
@@ -368,7 +368,7 @@ coils:
     c_flasher9:
         number: C09
         label: 'Flasher 9'
-    c_midLeftEject:
+    c_lock1_eject:
         number: C10
         label: 'Centre Left Eject'
     c_gi:
@@ -503,13 +503,13 @@ switches:
     s_rampEntry:
         number: S34
         label: 'Ramp Entry'
-    s_rightEject:
+    s_lock3:
         number: S35
         label: 'Right Eject'
-    s_midLeftEject:
+    s_lock1:
         number: S36
         label: 'Left Center Eject'
-    s_midRightEject:
+    s_lock2:
         number: S37
         label: 'Right Center Eject'
     s_vUK:
@@ -531,13 +531,13 @@ switches:
         tags: playfield_active
     s_exit:
         number: S45
-    s_lowerRampMade:
+    s_lock3_ramp:
         number: S46
         label: 'Lower Ramp'
-    s_middleRampMade:
+    s_lock1_ramp:
         number: S47
         label: 'Middle Ramp'
-    s_upperRampMade:
+    s_lock2_ramp:
         number: S48
         label: 'Upper Ramp'
     s_lowerLeftT:

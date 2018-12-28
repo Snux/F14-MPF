@@ -8,9 +8,9 @@
 #                                                     /____/_____/   /_/   /_____/      /____/             
 
 
-# Right hand side hurry-up, started by left inlane
-# TODO - check what happens if we repeat the hurry up with launch bonus 250k - here assumes we continue to score 250k each time......
-# TODO - when does the launch bonus reset?  Each ball?  Or every time we get to 250k?
+# Right hand side hurry-up, started by left inlane.  Plays light show on bonus arrows.  If the vUK is hit within 2 seconds then 
+# a launch bonus is scored which starts at 50k and goes up in 50k increments to max out at 250k
+# Launch bonus is reset to zero on each ball, by the base mode.
 
 mode:
    start_events: s_inlaneLeft_active
@@ -18,10 +18,12 @@ mode:
    priority: 110 # so the lamp show will cover other stuff
    
 event_player:
-   s_vUK_active{current_player.launch_bonus < 250000}:
-      increment_launch_bonus
-   s_vUK_active{current_player.launch_bonus == 250000}:
-      score_launch_bonus
+   balldevice_bd_vuk_ball_enter{current_player.launch_bonus < 250000}:
+      - increment_launch_bonus
+      - show_launch_bonus
+   balldevice_bd_vuk_ball_enter{current_player.launch_bonus == 250000}:
+      - score_launch_bonus
+      - show_launch_bonus
       
 variable_player:
    increment_launch_bonus:
@@ -31,7 +33,7 @@ variable_player:
       score: current_player.launch_bonus
       
 slide_player:
-   player_launch_bonus:
+   show_launch_bonus:
       slide:
         target: dmd
         expire: 1s

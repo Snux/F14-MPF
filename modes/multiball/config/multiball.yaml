@@ -1,0 +1,40 @@
+#config_version=5
+
+
+
+#      __  ___          __                          ____  _ __          ____
+#     /  |/  /___  ____/ /__  _    ____ ___  __  __/ / /_(_) /_  ____ _/ / /
+#    / /|_/ / __ \/ __  / _ \(_)  / __ `__ \/ / / / / __/ / __ \/ __ `/ / / 
+#   / /  / / /_/ / /_/ /  __/    / / / / / / /_/ / / /_/ / /_/ / /_/ / / /  
+#  /_/  /_/\____/\__,_/\___(_)  /_/ /_/ /_/\__,_/_/\__/_/_.___/\__,_/_/_/   
+#                                                                           
+
+# Going to try this out using the MPF locks etc.... hopefully this will all work!
+
+# There are 3 locks on the machine fed from the shooter lane and routed through via the
+# divertors on the ramp.  Once a ball is locked in each of those, a shot to the VUK should
+# start multiball.
+
+mode:
+   start_events: ball_starting 
+   priority: 120
+
+multiball_locks:
+   lock1:
+      balls_to_lock: 1
+      lock_devices: bd_mid_left_lock
+      enable_events: light_lock_1
+      locked_ball_counting_strategy: physical_only
+   lock2:
+      balls_to_lock: 1
+      lock_devices: bd_mid_right_lock
+      enable_events: light_lock_2
+   lock3:
+      balls_to_lock: 1
+      lock_devices: bd_lower_right_lock      
+      enable_events: light_lock_3
+   lock4:
+      balls_to_lock: 1
+      lock_devices: bd_vuk      
+      enable_events: light_lock_4
+      

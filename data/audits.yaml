@@ -1,6 +1,6 @@
 events:
   game_ended: 17
-  game_started: 303
+  game_started: 317
 player:
   score:
     average: 14509.411764705883
@@ -17,7 +17,7 @@ player:
     - 0
     total: 17
 shots:
-  generic1_6: 113
+  generic1_6: 116
   inc_bonus: 1207
   leftRescue: 140
   lower_left_t: 8
@@ -28,16 +28,16 @@ shots:
   target4: 1
   target5: 1
   target6: 1
-  tomcat_a: 3
-  tomcat_c: 3
-  tomcat_m: 11
-  tomcat_o: 11
-  tomcat_second_t: 3
-  tomcat_t: 25
+  tomcat_a: 16
+  tomcat_c: 14
+  tomcat_m: 22
+  tomcat_o: 25
+  tomcat_second_t: 15
+  tomcat_t: 48
   upper_left_t: 5
 switches:
-  s_bonusXLeft: 95
-  s_bonusXRight: 83
+  s_bonusXLeft: 111
+  s_bonusXRight: 200
   s_coinCenter: 0
   s_coinLeft: 0
   s_coinRight: 0
@@ -49,51 +49,57 @@ switches:
   s_enterSys11: 0
   s_exit: 0
   s_exitSys11: 0
-  s_flipperLwL: 37
+  s_flipperLwL: 40
   s_flipperLwR: 63
-  s_inlaneLeft: 38
-  s_inlaneRight: 115
-  s_jetBumper: 26
-  s_leftRescue: 144
+  s_inlaneLeft: 65
+  s_inlaneRight: 123
+  s_jetBumper: 27
+  s_leftRescue: 146
   s_left_inlane: 4
+  s_lock1: 0
+  s_lock1_ramp: 0
+  s_lock2: 1
+  s_lock2_ramp: 0
+  s_lock3: 0
+  s_lock3_ramp: 0
   s_lowerEject: 0
-  s_lowerLeftM: 16
-  s_lowerLeftO: 18
-  s_lowerLeftT: 52
-  s_lowerRampMade: 14
-  s_lowerRightA: 18
-  s_lowerRightC: 9
-  s_lowerRightT: 20
-  s_midLeftEject: 9
-  s_midRightEject: 269
+  s_lowerLeftM: 27
+  s_lowerLeftO: 31
+  s_lowerLeftT: 70
+  s_lowerRampMade: 22
+  s_lowerRightA: 31
+  s_lowerRightC: 20
+  s_lowerRightT: 31
+  s_midLeftEject: 36
+  s_midRightEject: 287
   s_middleEject: 0
-  s_middleRampMade: 6
-  s_outhole: 165
+  s_middleRampMade: 18
+  s_outhole: 176
   s_outlaneLeft: 227
   s_outlaneRight: 1233
   s_plunger: 1
-  s_rampEntry: 278
-  s_rightEject: 15
-  s_rightRescue: 173
+  s_rampEntry: 304
+  s_rightEject: 25
+  s_rightRescue: 175
   s_right_inlane: 4
-  s_shooter: 380
+  s_shooter: 408
   s_slamTilt: 0
-  s_slingL: 32
-  s_slingR: 27
-  s_spinner: 328
+  s_slingL: 40
+  s_slingR: 36
+  s_spinner: 688
   s_start: 0
   s_startButton: 17
   s_target1: 44
   s_target2: 28
-  s_target3: 37
+  s_target3: 39
   s_target4: 13
   s_target5: 5
-  s_target6: 1
+  s_target6: 2
   s_tilt: 9
-  s_trough1: 100
-  s_trough2: 198
-  s_trough3: 35
-  s_trough4: 162
+  s_trough1: 104
+  s_trough2: 213
+  s_trough3: 40
+  s_trough4: 186
   s_trough_centre: 0
   s_trough_left: 0
   s_trough_right: 0
@@ -103,11 +109,11 @@ switches:
   s_upSys11: 0
   s_upperEject: 0
   s_upperLeftM: 0
-  s_upperLeftO: 2
-  s_upperLeftT: 16
-  s_upperRampMade: 70
+  s_upperLeftO: 3
+  s_upperLeftT: 21
+  s_upperRampMade: 78
   s_upperRightA: 23
   s_upperRightC: 31
-  s_upperRightT: 6
-  s_vUK: 22
-  s_yagov: 55
+  s_upperRightT: 7
+  s_vUK: 73
+  s_yagov: 57
