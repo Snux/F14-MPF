@@ -30,12 +30,15 @@ ball_devices:
    bd_lock1:
       ball_switches: s_lock1
       eject_coil: c_lock1_eject
+      request_ball_events: catch1
    bd_lock2:
       ball_switches: s_lock2
       eject_coil: c_lock2_eject
+      request_ball_events: catch2
    bd_lock3:
       ball_switches:  s_lock3
       eject_coil: c_lock3_eject
+      request_ball_events: catch3
    bd_vuk:
       ball_switches: s_vUK
       eject_coil: c_upKicker

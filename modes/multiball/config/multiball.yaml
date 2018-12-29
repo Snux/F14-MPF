@@ -19,22 +19,19 @@ mode:
    start_events: ball_starting 
    priority: 120
 
+#event_player:
+#  mode_multiball_started:
+#      - catch1
+
 multiball_locks:
    lock1:
       balls_to_lock: 1
-      lock_devices: bd_mid_left_lock
-      enable_events: light_lock_1
-      locked_ball_counting_strategy: physical_only
+      lock_devices: bd_lock1
    lock2:
       balls_to_lock: 1
-      lock_devices: bd_mid_right_lock
-      enable_events: light_lock_2
+      lock_devices: bd_lock2
    lock3:
       balls_to_lock: 1
-      lock_devices: bd_lower_right_lock      
-      enable_events: light_lock_3
-   lock4:
-      balls_to_lock: 1
-      lock_devices: bd_vuk      
-      enable_events: light_lock_4
+      lock_devices: bd_lock3
+
       
