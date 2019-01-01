@@ -8,7 +8,7 @@
 #  \____/\____/_/ /_/_/ /_/\__, (_)   \__,_/\___/|___/_/\___/\___/____/  
 #                         /____/                                         
 
-# At the moment the 2 divertors are in here and we'll let MPF handle them.  
+ 
 # Once we get to sorting out multiball we might need to get more clever
 ball_devices:
    bd_drain:
@@ -24,42 +24,42 @@ ball_devices:
    bd_plunger_lane:
       ball_switches: s_shooter
       mechanical_eject: true
-      eject_coil: c_autoLaunch
+#      eject_coil: c_autoLaunch
       entrance_count_delay: 1s
-      eject_targets: bd_lock1, bd_lock2, bd_lock3
+#      eject_targets: bd_lock1, bd_lock2, bd_lock3
    bd_lock1:
       ball_switches: s_lock1
       eject_coil: c_lock1_eject
       request_ball_events: catch1
+      eject_events: eject_lock1
+      confirm_eject_type: event
+      confirm_eject_event: sw_playfield_active
+#      entrance_events: s_lock1_ramp_active
+#      entrance_event_timeout: 0.2s
+#      exit_count_delay: 100ms
+#      entrance_count_delay: 100ms
+#      entrance_count_delay: 1.5s
+#      max_eject_attempts: 1
+      debug: true
    bd_lock2:
       ball_switches: s_lock2
       eject_coil: c_lock2_eject
       request_ball_events: catch2
+      eject_events: eject_lock2
+      confirm_eject_type: event
+      confirm_eject_event: sw_playfield_active
    bd_lock3:
       ball_switches:  s_lock3
       eject_coil: c_lock3_eject
       request_ball_events: catch3
+      eject_events: eject_lock3
+      confirm_eject_type: event
+      confirm_eject_event: sw_playfield_active
    bd_vuk:
       ball_switches: s_vUK
       eject_coil: c_upKicker
-      eject_targets: bd_lock1, bd_lock2, bd_lock3
+#      eject_targets: bd_lock1, bd_lock2, bd_lock3
 
       
-diverters:
-   top_diverter:
-      activation_coil: c_upperDivertor
-      activation_time: 3s
-      #activation_switches: s_rampEntry
-      activate_events: send_to_mid_right_lock
-      targets_when_active: bd_lock2
-      targets_when_inactive: bd_lock1, bd_lock3
-      feeder_devices: bd_vuk, bd_plunger_lane
-   lower_diverter:
-      activation_time: 3s
-      #activation_switches: s_rampEntry
-      activation_coil: c_lowerDivertor
-      targets_when_active: bd_lock1
-      targets_when_inactive: bd_lock3
-      feeder_devices: bd_vuk, bd_plunger_lane
-      
+
       

@@ -1,0 +1,63 @@
+#config_version=5
+
+#      __  ___          __          __           __        __                    ____         
+#     /  |/  /___  ____/ /__  _    / /___  _____/ /__     / /_  ____ _____  ____/ / /__  _____
+#    / /|_/ / __ \/ __  / _ \(_)  / / __ \/ ___/ //_/    / __ \/ __ `/ __ \/ __  / / _ \/ ___/
+#   / /  / / /_/ / /_/ /  __/    / / /_/ / /__/ ,<      / / / / /_/ / / / / /_/ / /  __/ /    
+#  /_/  /_/\____/\__,_/\___(_)  /_/\____/\___/_/|_|____/_/ /_/\__,_/_/ /_/\__,_/_/\___/_/     
+#                                                /_____/                                      
+
+# This mode runs during regular play and handles the locks.  It will also post the event which actually starts
+# multiball (eventually)
+
+mode:
+   start_events: ball_starting
+   priority: 110
+
+# The inbuilt divertor logic of MPF is a little too clever and will always try to route
+# ball to the playfield (feature request might fix this), so for now we have to handle the routing and locks
+# ourselves
+event_player:
+   # These first 3 will make sure that we don't end up with 2 balls in a single lock, because we only
+   # have one switch in there.  So if the switch on the ramp is activated and there is a ball in the
+   # related lock, we should kick it out.
+   s_lock1_ramp_active{device.ball_devices.bd_lock1.balls==1}:
+      - eject_lock1
+   s_lock2_ramp_active{device.ball_devices.bd_lock2.balls==1}:
+      - eject_lock2
+   s_lock3_ramp_active{device.ball_devices.bd_lock3.balls==1}:
+      - eject_lock3
+
+# The locks for multiball are kinda tricky.  
+# TODO - document this properly once it's working
+multiball_locks:
+   lock1:
+      balls_to_lock: 1
+      lock_devices: bd_lock1
+      disable_events: multiball_tomcat_multiball_started
+      balls_to_replace: 0
+      reset_count_for_current_player_events: balldevice_bd_lock1_ejecting_ball
+      debug: true
+   lock2:
+      balls_to_lock: 1
+      lock_devices: bd_lock2
+      disable_events: multiball_tomcat_multiball_started
+      balls_to_replace: 0
+      reset_count_for_current_player_events: balldevice_bd_lock2_ejecting_ball
+   lock3:
+      balls_to_lock: 1
+      lock_devices: bd_lock3
+      disable_events: multiball_tomcat_multiball_started
+      balls_to_replace: 0
+      reset_count_for_current_player_events: balldevice_bd_lock3_ejecting_ball
+
+# Keep this simple to start with - once all 3 locks are full, we can issue the run_multiball event
+# which will start the multiball mode
+accruals:
+   lock_counter:
+      events:
+         - multiball_lock_lock1_full
+         - multiball_lock_lock2_full
+         - multiball_lock_lock3_full
+      events_when_complete:
+         - run_multiball

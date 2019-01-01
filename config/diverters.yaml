@@ -1,0 +1,32 @@
+#config_version=5
+
+
+
+#     ______            _____                ___                 __                 
+#    / ____/___  ____  / __(_)___ __    ____/ (_)   _____  _____/ /_____  __________
+#   / /   / __ \/ __ \/ /_/ / __ `(_)  / __  / / | / / _ \/ ___/ __/ __ \/ ___/ ___/
+#  / /___/ /_/ / / / / __/ / /_/ /    / /_/ / /| |/ /  __/ /  / /_/ /_/ / /  (__  ) 
+#  \____/\____/_/ /_/_/ /_/\__, (_)   \__,_/_/ |___/\___/_/   \__/\____/_/  /____/  
+#                         /____/                                                    
+
+# Putting the divertors in a separate config file so we can easily disable them by commenting out
+# in the main config.  Not convinced yet that having MPF handle this is the best way.
+
+diverters:
+   top_diverter:
+      activation_coil: c_upperDivertor
+      activation_time: 3s
+      #activation_switches: s_rampEntry
+      activate_events: send_to_lock2
+      targets_when_active: bd_lock2
+      targets_when_inactive: bd_lock1, bd_lock3
+      feeder_devices: bd_vuk, bd_plunger_lane
+   lower_diverter:
+      activation_time: 3s
+      activate_events: send_to_lock1
+      #activation_switches: s_rampEntry
+      activation_coil: c_lowerDivertor
+      targets_when_active: bd_lock1
+      targets_when_inactive: bd_lock3
+      feeder_devices: bd_vuk, bd_plunger_lane
+      

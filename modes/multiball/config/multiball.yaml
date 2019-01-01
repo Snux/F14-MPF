@@ -16,22 +16,31 @@
 # start multiball.
 
 mode:
-   start_events: ball_starting 
-   priority: 120
+   start_events: run_multiball
+   stop_events: multiball_tomcat_multiball_ended   
+   priority: 200
 
 #event_player:
 #  mode_multiball_started:
-#      - catch1
+#      - catch3
 
-multiball_locks:
-   lock1:
-      balls_to_lock: 1
-      lock_devices: bd_lock1
-   lock2:
-      balls_to_lock: 1
-      lock_devices: bd_lock2
-   lock3:
-      balls_to_lock: 1
-      lock_devices: bd_lock3
+
+slide_player:
+   multiball_tomcat_multiball_started:
+     slide_bonus:
+        target: dmd
+        widgets:
+          - type: text
+            text: MULTIBALL
+            font_size: 15
+            color: white 
+
+multiballs:
+    tomcat_multiball:
+        ball_count: 4
+        ball_count_type: total
+        shoot_again: 2s
+        start_events: s_vUK_active
+        ball_locks: bd_lock1, bd_lock2, bd_lock3
 
       

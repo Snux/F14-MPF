@@ -75,4 +75,7 @@ class YourGame(Game):
                                  "playfield?")
 
         # add some logic here to determine the source device
-        self.machine.playfield.add_ball(player_controlled=True, source_device=self.machine.ball_devices['bd_lock2'])
+        #self.machine.playfield.add_ball(player_controlled=True, source_device=self.machine.ball_devices['bd_lock2'])
+        
+        # or use standard MPF
+        self.machine.playfield.add_ball(player_controlled=True)

@@ -323,6 +323,7 @@ coils:
     c_troughEject:
         number: C02a
         tags: trough_eject
+        pulse_events: s_coinLeft_active
         default_pulse_ms: 30
         label: 'Trough Eject'
     c_flasher2:

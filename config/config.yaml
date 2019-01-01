@@ -34,6 +34,7 @@ config:
    - kickback.yaml
    - simple_shows.yaml
    - sounds.yaml
+#   - diverters.yaml
 #   - smart_matrix.yaml
 #   - real_dmd.yaml
 
@@ -92,7 +93,8 @@ modes:
    - orbit
    - yagov
    - hurry_up_right
-#   - multiball
+   - lock_handler
+   - multiball
 
 virtual_platform_start_active_switches:
    - s_trough1
@@ -103,13 +105,13 @@ virtual_platform_start_active_switches:
 # TODO - actually this isn't the source device, as there are 3 source devices (each of the locks)     
 playfields:
    playfield:
-       default_source_device: bd_lock2
+       default_source_device: bd_plunger_lane
        tags: default
       
 keyboard:
    z:
       switch:   s_left_inlane
    x:
-      switch:   s_right_inlane
+      switch:   s_unused57
    s:
       switch:   s_startButton
