@@ -62,6 +62,15 @@ player_vars:
       value_type: str
    launch_bonus:
       initial_value: 0
+   lock1_status: 
+      initial_value: unlit
+      value_type: str
+   lock2_status: 
+      initial_value: unlit
+      value_type: str
+   lock3_status: 
+      initial_value: unlit
+      value_type: str
 
 # Turn on the GI and the radar insert
 show_player:
@@ -95,6 +104,7 @@ modes:
    - hurry_up_right
    - lock_handler
    - multiball
+   - tomcat_targets
 
 virtual_platform_start_active_switches:
    - s_trough1

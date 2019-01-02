@@ -26,6 +26,8 @@ ball_devices:
       mechanical_eject: true
 #      eject_coil: c_autoLaunch
       entrance_count_delay: 1s
+      confirm_eject_type: event
+      confirm_eject_event : ball_cleared_ramp
 #      eject_targets: bd_lock1, bd_lock2, bd_lock3
    bd_lock1:
       ball_switches: s_lock1
@@ -58,6 +60,8 @@ ball_devices:
    bd_vuk:
       ball_switches: s_vUK
       eject_coil: c_upKicker
+      confirm_eject_type: event
+      confirm_eject_event : ball_cleared_ramp
 #      eject_targets: bd_lock1, bd_lock2, bd_lock3
 
       

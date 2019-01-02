@@ -20,10 +20,6 @@ mode:
    stop_events: multiball_tomcat_multiball_ended   
    priority: 200
 
-#event_player:
-#  mode_multiball_started:
-#      - catch3
-
 
 slide_player:
    multiball_tomcat_multiball_started:

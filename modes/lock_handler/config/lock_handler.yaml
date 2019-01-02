@@ -10,13 +10,24 @@
 # This mode runs during regular play and handles the locks.  It will also post the event which actually starts
 # multiball (eventually)
 
+# The inbuilt divertor logic of MPF is a little too clever and will always try to route
+# ball to the playfield (feature request might fix this), so for now we have to handle the routing and locks
+# ourselves
+
+
 mode:
    start_events: ball_starting
    priority: 110
 
-# The inbuilt divertor logic of MPF is a little too clever and will always try to route
-# ball to the playfield (feature request might fix this), so for now we have to handle the routing and locks
-# ourselves
+# There are a number of player variables helping us out here.  A lot of them can probably be removed though..
+# lock1_ lock2 and lock3_status can have 1 of 3 values.  These are independant of whether the lock actually
+# contains a ball at the current time.
+# 'unlit' - the lock is not enabled. If a ball lands in the lock it should just be ejected.
+# 'lit' - the lock is enabled.  If a ball lands in the lock, it will lock.  This might involve ejecting a ball if there was one there already
+#         which will become the ball in play (instead of a new one being served from the trough)
+# 'locked' - there is a ball in the lock and we consider it locked.  If this ball gets ejected (apart from in multiball) then we should revert the 
+#         status back to 'lit' so the next ball will re-lock 
+
 event_player:
    # These first 3 will make sure that we don't end up with 2 balls in a single lock, because we only
    # have one switch in there.  So if the switch on the ramp is activated and there is a ball in the
@@ -27,6 +38,91 @@ event_player:
       - eject_lock2
    s_lock3_ramp_active{device.ball_devices.bd_lock3.balls==1}:
       - eject_lock3
+   # These next 3 all trigger an event which will let both the plunger and the vuk know that their
+   # eject was successful.  Also used to switch diverters off that will have done their job.
+   s_lock1_ramp_active:
+      - ball_cleared_ramp
+   s_lock2_ramp_active:
+      - ball_cleared_ramp
+   s_lock3_ramp_active:
+      - ball_cleared_ramp
+   # The following three will lock a ball and kick out a new one
+   multiball_lock_lock1_full{current_player.lock1_status=='lit'}:
+      - eject_from_trough
+      - lock_ball_1
+   multiball_lock_lock2_full{current_player.lock2_status=='lit'}:
+      - eject_from_trough
+      - lock_ball_2
+   multiball_lock_lock3_full{current_player.lock3_status=='lit'}:
+      - eject_from_trough
+      - lock_ball_3
+   multiball_tomcat_multiball_started:
+      - reset_locks
+   # For routing through the divertors, we have to watch either the vUK ejecting, or the ramp entry switch (from the shooter lane)
+   # being hit.  TODO - bring in some randomness here.
+   balldevice_bd_vuk_ejecting_ball{current_player.lock1_status=='lit'}:
+      - route_to_lock1
+   balldevice_bd_vuk_ejecting_ball{current_player.lock1_status != 'lit' and current_player.lock2_status=='lit'}:
+      - route_to_lock2
+   s_rampEntry_active{current_player.lock1_status=='lit'}:
+      - route_to_lock1
+   s_rampEntry_active{current_player.lock1_status != 'lit' and current_player_lock2.status=='lit'}:
+      - route_to_lock2
+
+# Will activate a divertor depending on which lock is our target.  
+coil_player:
+   route_to_lock1:
+      c_lowerDivertor:
+         action: pulse
+         pulse_ms: 3000
+   route_to_lock2:
+      c_upperDivertor:
+         action: pulse
+         pulse_ms: 3000
+   ball_cleared_ramp: # Divertor did it's job, so can be switched off
+      c_upperDivertor:
+         action: disable
+      c_lowerDivertor:
+         action: disable
+   
+      
+variable_player:
+   lock_ball_1:
+      lock1_status:
+         action: set
+         string: locked
+   light_lock_1:
+      lock1_status:
+         action: set
+         string: lit
+   lock_ball_2:
+      lock2_status:
+         action: set
+         string: locked
+   light_lock_2:
+      lock2_status:
+         action: set
+         string: lit   
+   lock_ball_3:
+      lock3_status:
+         action: set
+         string: locked
+   light_lock_3:
+      lock3_status:
+         action: set
+         string: lit
+   reset_locks:
+      lock1_status:
+         action: set
+         string: unlit
+      lock2_status:
+         action: set
+         string: unlit
+      lock3_status:
+         action: set
+         string: unlit
+
+
 
 # The locks for multiball are kinda tricky.  
 # TODO - document this properly once it's working
@@ -37,17 +133,19 @@ multiball_locks:
       disable_events: multiball_tomcat_multiball_started
       balls_to_replace: 0
       reset_count_for_current_player_events: balldevice_bd_lock1_ejecting_ball
-      debug: true
+      enable_events: light_lock_1
    lock2:
       balls_to_lock: 1
       lock_devices: bd_lock2
       disable_events: multiball_tomcat_multiball_started
+      enable_events: light_lock_2
       balls_to_replace: 0
       reset_count_for_current_player_events: balldevice_bd_lock2_ejecting_ball
    lock3:
       balls_to_lock: 1
       lock_devices: bd_lock3
       disable_events: multiball_tomcat_multiball_started
+      enable_events: light_lock_3
       balls_to_replace: 0
       reset_count_for_current_player_events: balldevice_bd_lock3_ejecting_ball
 

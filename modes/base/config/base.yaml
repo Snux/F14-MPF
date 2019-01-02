@@ -33,10 +33,6 @@ variable_player:
        score: 10
     s_slingR_active:
        score: 10
-    tomcat_flashing_hit:
-       score: 1000
-    tomcat_lit_hit:
-       score: 100
     mode_base_started:
        launch_bonus:
           action: set
@@ -50,10 +46,9 @@ event_player:
       - flipper_on
    mode_base_ended:
       - flipper_off
-   tomcat_hit: # in any state, event is from the shot group in this mode
-      - increment_bonus # handled by the bonus_manager mode
-   tomcat_lit_complete:
-      - light_lock_1 
+   s_inlaneLeft_active:
+      - spot_tomcat_letter
+
 
       
          
@@ -71,7 +66,7 @@ slide_player:
          target: dmd_mini
          widgets:
           - type: text
-            text: PLAYER (number)
+            text: LOCK1 (tomcat_t_tomcat_profile.state)
             color: deepskyblue
             y: 9
             x: 1
@@ -81,7 +76,7 @@ slide_player:
             font_name: fixed_01
           - type: text
             color: red
-            text: BALL   (ball)
+            text: LOCK2 (lock2_status)
             y: 1
             x: 1
             anchor_x: left
@@ -90,74 +85,14 @@ slide_player:
             font_name: fixed_01
           - type: text
             color: orange
-            text: BONUS (bonus_score)
+            text: LOCK3 (lock3_status)
             y: 18
             x: 1
             anchor_x: left
             anchor_y: bottom
             font_size: 8
             font_name: fixed_01
-  tomcat_lit_complete:
-     slide_tomcat:
-        target: dmd
-        expire: 1s
-        widgets:
-          - type: text
-            text: TOMCAT
-            font_size: 15
-            color: blue
 
-# The rest of this handles the TOMCAT targets
-# TODO - move to own mode and comment properly        
-shots:
-  tomcat_t:
-    switches: s_lowerLeftT s_upperLeftT
-    show_tokens: 
-       lights: l_lowerLeftT l_upperLeftT
-    profile: tomcat_profile 
-  tomcat_o:
-    switches: s_lowerLeftO s_upperLeftO
-    show_tokens: 
-       lights: l_lowerLeftO l_upperLeftO
-    profile: tomcat_profile 
-  tomcat_m:
-    switches: s_lowerLeftM s_upperLeftM
-    show_tokens: 
-       lights: l_lowerLeftM l_upperLeftM
-    profile: tomcat_profile 
-  tomcat_c:
-    switches: s_lowerRightC s_upperRightC
-    show_tokens: 
-       lights: l_lowerRightC l_upperRightC
-    profile: tomcat_profile 
-  tomcat_a:
-    switches: s_lowerRightA s_upperRightA
-    show_tokens: 
-       lights: l_lowerRightA l_upperRightA
-    profile: tomcat_profile   
-  tomcat_second_t:
-    switches: s_lowerRightT s_upperRightT
-    show_tokens: 
-       lights: l_lowerRightT l_upperRightT
-    profile: tomcat_profile 
-
-    
-    
-shot_profiles:
-  tomcat_profile:
-    states:
-      - name: flashing  # step 1
-        show: flash
-        speed: 6
-      - name: lit  # step 2
-        show: on
-    loop: false
-    
-           
-shot_groups:
-   tomcat: 
-      shots: tomcat_t tomcat_o tomcat_m tomcat_c tomcat_a tomcat_second_t 
-      restart_events: tomcat_lit_complete
 
 sound_player:
    mode_base_started:

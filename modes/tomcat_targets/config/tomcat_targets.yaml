@@ -1,0 +1,141 @@
+#config_version=5
+
+
+
+#      __  ___          __          __                             __      __                        __      
+#     /  |/  /___  ____/ /__  _    / /_____  ____ ___  _________ _/ /_    / /_____ __________ ____  / /______
+#    / /|_/ / __ \/ __  / _ \(_)  / __/ __ \/ __ `__ \/ ___/ __ `/ __/   / __/ __ `/ ___/ __ `/ _ \/ __/ ___/
+#   / /  / / /_/ / /_/ /  __/    / /_/ /_/ / / / / / / /__/ /_/ / /_    / /_/ /_/ / /  / /_/ /  __/ /_(__  ) 
+#  /_/  /_/\____/\__,_/\___(_)   \__/\____/_/ /_/ /_/\___/\__,_/\__/____\__/\__,_/_/   \__, /\___/\__/____/  
+#                                                                 /_____/             /____/                 
+
+# This mode generally runs if there is a ball in play.  It handles both sets of T-O-M-C-A-T targets
+
+# The top and bottom sets of targets work as a single set - so hitting the letter 'M' in the top set
+# also spots it in the lower set and vice-versa.
+# Getting all the letters lit will light a lock and then start over.
+# Other things going on in the game can also spot a random letter
+
+mode:
+   start_events: ball_starting
+   priority: 120
+   
+event_player:
+   tomcat_hit: # in any state, event is from the shot group in this mode
+      - increment_bonus # handled by the bonus_manager mode
+   tomcat_lit_complete{current_player.lock1_status=='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
+      - light_lock_1 # This will need to get more clever, but for now just enable lock 1
+   tomcat_lit_complete{current_player.lock2_status=='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
+      - light_lock_2 # This will need to get more clever, but for now just enable lock 2
+   tomcat_lit_complete{current_player.lock3_status=='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
+      - light_lock_3 # This will need to get more clever, but for now just enable lock 3
+   # These ones will handle an event which should spot a random letter
+   # TODO work out a way to do this that isn't pig-ugly
+   attempt_spot_tomcat_t{current_player.tomcat_t_tomcat_profile==0}:
+      - spot_tomcat_t
+   attempt_spot_tomcat_t{current_player.tomcat_t_tomcat_profile==1}:
+      - spot_tomcat_letter
+   attempt_spot_tomcat_o{current_player.tomcat_o_tomcat_profile==0}:
+      - spot_tomcat_o
+   attempt_spot_tomcat_o{current_player.tomcat_o_tomcat_profile==1}:
+      - spot_tomcat_letter
+   attempt_spot_tomcat_m{current_player.tomcat_m_tomcat_profile==0}:
+      - spot_tomcat_m
+   attempt_spot_tomcat_m{current_player.tomcat_m_tomcat_profile==1}:
+      - spot_tomcat_letter
+   attempt_spot_tomcat_c{current_player.tomcat_c_tomcat_profile==0}:
+      - spot_tomcat_c
+   attempt_spot_tomcat_c{current_player.tomcat_c_tomcat_profile==1}:
+      - spot_tomcat_letter
+   attempt_spot_tomcat_a{current_player.tomcat_a_tomcat_profile==0}:
+      - spot_tomcat_a
+   attempt_spot_tomcat_a{current_player.tomcat_a_tomcat_profile==1}:
+      - spot_tomcat_letter
+   attempt_spot_tomcat_second_t{current_player.tomcat_second_t_tomcat_profile==0}:
+      - spot_tomcat_second_t
+   attempt_spot_tomcat_second_t{current_player.tomcat_second_t_tomcat_profile==1}:
+      - spot_tomcat_letter
+
+variable_player:
+    tomcat_flashing_hit:
+       score: 1000
+    tomcat_lit_hit:
+       score: 100
+          
+slide_player:
+  tomcat_lit_complete:
+     slide_tomcat:
+        target: dmd
+        expire: 1s
+        widgets:
+          - type: text
+            text: TOMCAT
+            font_size: 15
+            color: blue
+
+random_event_player:
+   spot_tomcat_letter:
+      events:
+         - attempt_spot_tomcat_t
+         - attempt_spot_tomcat_o
+         - attempt_spot_tomcat_m
+         - attempt_spot_tomcat_c
+         - attempt_spot_tomcat_a
+         - attempt_spot_tomcat_second_t
+   
+shots:
+  tomcat_t:
+    switches: s_lowerLeftT s_upperLeftT
+    show_tokens: 
+       lights: l_lowerLeftT l_upperLeftT
+    profile: tomcat_profile 
+    hit_events: spot_tomcat_t
+  tomcat_o:
+    switches: s_lowerLeftO s_upperLeftO
+    show_tokens: 
+       lights: l_lowerLeftO l_upperLeftO
+    profile: tomcat_profile 
+    hit_events: spot_tomcat_o
+  tomcat_m:
+    switches: s_lowerLeftM s_upperLeftM
+    show_tokens: 
+       lights: l_lowerLeftM l_upperLeftM
+    hit_events: spot_tomcat_m
+    profile: tomcat_profile 
+  tomcat_c:
+    switches: s_lowerRightC s_upperRightC
+    show_tokens: 
+       lights: l_lowerRightC l_upperRightC
+    profile: tomcat_profile 
+    hit_events: spot_tomcat_c
+  tomcat_a:
+    switches: s_lowerRightA s_upperRightA
+    show_tokens: 
+       lights: l_lowerRightA l_upperRightA
+    profile: tomcat_profile   
+    hit_events: spot_tomcat_a
+  tomcat_second_t:
+    switches: s_lowerRightT s_upperRightT
+    show_tokens: 
+       lights: l_lowerRightT l_upperRightT
+    profile: tomcat_profile 
+    hit_events: spot_tomcat_second_t
+
+    
+    
+shot_profiles:
+  tomcat_profile:
+    states:
+      - name: flashing  # step 1
+        show: flash
+        speed: 6
+      - name: lit  # step 2
+        show: on
+    loop: false
+    
+           
+shot_groups:
+   tomcat: 
+      shots: tomcat_t tomcat_o tomcat_m tomcat_c tomcat_a tomcat_second_t 
+      restart_events: tomcat_lit_complete
+            
