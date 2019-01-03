@@ -1,6 +1,6 @@
 events:
   game_ended: 24
-  game_started: 424
+  game_started: 452
 player:
   score:
     average: 21300.833333333336
@@ -28,12 +28,12 @@ shots:
   target4: 1
   target5: 1
   target6: 1
-  tomcat_a: 99
-  tomcat_c: 67
-  tomcat_m: 110
-  tomcat_o: 133
-  tomcat_second_t: 84
-  tomcat_t: 176
+  tomcat_a: 100
+  tomcat_c: 68
+  tomcat_m: 113
+  tomcat_o: 136
+  tomcat_second_t: 85
+  tomcat_t: 188
   upper_left_t: 5
 switches:
   s_bonusXLeft: 170
@@ -51,7 +51,7 @@ switches:
   s_exitSys11: 0
   s_flipperLwL: 71
   s_flipperLwR: 63
-  s_inlaneLeft: 145
+  s_inlaneLeft: 183
   s_inlaneRight: 132
   s_jetBumper: 53
   s_leftRescue: 158
@@ -63,9 +63,9 @@ switches:
   s_lock3: 104
   s_lock3_ramp: 86
   s_lowerEject: 0
-  s_lowerLeftM: 103
-  s_lowerLeftO: 128
-  s_lowerLeftT: 152
+  s_lowerLeftM: 105
+  s_lowerLeftO: 130
+  s_lowerLeftT: 164
   s_lowerRampMade: 22
   s_lowerRightA: 102
   s_lowerRightC: 62
@@ -82,7 +82,7 @@ switches:
   s_rightEject: 25
   s_rightRescue: 179
   s_right_inlane: 4
-  s_shooter: 689
+  s_shooter: 716
   s_slamTilt: 0
   s_slingL: 91
   s_slingR: 97

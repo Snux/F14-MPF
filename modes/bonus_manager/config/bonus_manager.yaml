@@ -56,12 +56,12 @@ shots:
 show_player:
   logicblock_bonus_count_1K_updated{value < 1}:
       off:
-         key: 2K
+         key: 1K
          show_tokens: 
             light: l_bonus1K
   logicblock_bonus_count_1K_updated{value >= 1}:
       on:
-         key: 2K
+         key: 1K
          show_tokens: 
             light: l_bonus1K            
   logicblock_bonus_count_2K_updated{value < 2}:
