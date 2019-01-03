@@ -30,7 +30,12 @@ event_player:
    tomcat_lit_complete{current_player.lock3_status=='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
       - light_lock_3 # This will need to get more clever, but for now just enable lock 3
    # These ones will handle an event which should spot a random letter
-   # TODO work out a way to do this that isn't pig-ugly
+   # The "attempt_spot" events are generated from the random_player in this mode.  If the attempt is made on a target
+   # which is not currently lit, then it can be spotted.  This is done by generating the 'spot' event for that letter
+   # which in turn is picked up as a hit_event by the shot
+   # If however the attempt is for a target which is already lit, then we just call the spot_tomcat_letter again which
+   # will give us a different target - eventually this will return an unlit target
+   # TODO work out a way to do this that isn't so pig-ugly
    attempt_spot_tomcat_t{device.shots.tomcat_t.state_name!='lit'}:
       - spot_tomcat_t
    attempt_spot_tomcat_t{device.shots.tomcat_t.state_name=='lit'}:
@@ -73,6 +78,8 @@ slide_player:
             font_size: 15
             color: blue
 
+# This player is the handler for the generic "spot_tomcat_letter" event that can be posted from 
+# elsewhere.  It will generate an event which is used to attempt to spot a random letter
 random_event_player:
    spot_tomcat_letter:
       events:
