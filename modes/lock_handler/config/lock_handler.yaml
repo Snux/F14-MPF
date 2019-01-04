@@ -34,10 +34,13 @@ event_player:
    # related lock, we should kick it out.
    s_lock1_ramp_active{device.ball_devices.bd_lock1.balls==1}:
       - eject_lock1
+      - heads_up_voice
    s_lock2_ramp_active{device.ball_devices.bd_lock2.balls==1}:
       - eject_lock2
+      - heads_up_voice
    s_lock3_ramp_active{device.ball_devices.bd_lock3.balls==1}:
       - eject_lock3
+      - heads_up_voice
    # These next 3 all trigger an event which will let both the plunger and the vuk know that their
    # eject was successful.  Also used to switch diverters off that will have done their job.
    s_lock1_ramp_active:
@@ -59,17 +62,20 @@ event_player:
    multiball_tomcat_multiball_started:
       - reset_locks
    # For routing through the divertors, we have to watch either the vUK ejecting, or the ramp entry switch (from the shooter lane)
-   # being hit.  TODO - bring in some randomness here.
+   # being hit.  
+   # TODO - bring in some randomness here.  At the moment it routes to lock 1 if lit, else lock 2 if lit otherwise just drops through
+   # and lands in lock3
    balldevice_bd_vuk_ejecting_ball{current_player.lock1_status=='lit'}:
       - route_to_lock1
    balldevice_bd_vuk_ejecting_ball{current_player.lock1_status != 'lit' and current_player.lock2_status=='lit'}:
       - route_to_lock2
    s_rampEntry_active{current_player.lock1_status=='lit'}:
       - route_to_lock1
-   s_rampEntry_active{current_player.lock1_status != 'lit' and current_player_lock2.status=='lit'}:
+   s_rampEntry_active{current_player.lock1_status != 'lit' and current_player.lock2_status=='lit'}:
       - route_to_lock2
 
 # Will activate a divertor depending on which lock is our target.  
+# TODO - do these actually time out properly?
 coil_player:
    route_to_lock1:
       c_lowerDivertor:
@@ -122,7 +128,45 @@ variable_player:
          action: set
          string: unlit
 
-
+show_player:
+   light_lock_1:
+      flash:
+         key: lock1
+         speed: 4
+         show_tokens: 
+            light: l_lock1
+   light_lock_2:
+      flash:
+         key: lock2
+         speed: 4
+         show_tokens: 
+            light: l_lock2
+   light_lock_3:
+      flash:
+         key: lock3
+         speed: 4
+         show_tokens: 
+            light: l_lock3
+   lock_ball_1:
+      on:
+         key: lock1
+         show_tokens: 
+            light: l_lock1
+   lock_ball_2:
+      on:
+         key: lock2
+         show_tokens: 
+            light: l_lock2
+   lock_ball_3:
+      on:
+         key: lock3
+         show_tokens: 
+            light: l_lock3
+   reset_locks:
+      off:
+         show_tokens:
+            lights: l_lock1, l_lock2, l_lock3
+               
 
 # The locks for multiball are kinda tricky.  
 # TODO - document this properly once it's working
@@ -159,3 +203,8 @@ accruals:
          - multiball_lock_lock3_full
       events_when_complete:
          - run_multiball
+         
+sound_player:
+   heads_up_voice: # warns player ball coming into play from a lock instead of plunger.
+      heads_up:
+         action: play

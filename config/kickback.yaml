@@ -19,3 +19,6 @@ autofire_coils:
       debug: false
       ball_search_order: 0 # ball can't get stuck here
       disable_events: rescue_off
+   yagov_kickback:
+      coil: c_yagovKickBack
+      switch: s_yagov

@@ -277,27 +277,27 @@ lights:
         number: L78
         label: 'Spinner 2K'
         platform: p_roc
-    l_upperLock:
+    l_lock2:
         number: L81
         label: 'Upper Lock'
         platform: p_roc
-    l_middleLock:
+    l_lock1:
         number: L82
         label: 'Centre Lock'
         platform: p_roc
-    l_lowerLock:
+    l_lock3:
         number: L83
         label: 'Lower Lock'
         platform: p_roc
-    l_upperLanding:
+    l_landing2:
         number: L84
         label: 'Upper Landing'
         platform: p_roc
-    l_middleLanding:
+    l_landing1:
         number: L85
         label: 'Centre Landing'
         platform: p_roc
-    l_lowerLanding:
+    l_landing3:
         number: L86
         label: 'Lower Landing'
         platform: p_roc
@@ -378,7 +378,7 @@ coils:
     c_yagovKickBack:
         number: C12
         label: 'Yagov Kickback'
-        #platform: p_roc
+        platform: p_roc
     c_rescueKickBack:
         number: C13
         label: 'Rescue Kickback'
@@ -627,7 +627,7 @@ switches:
     s_yagov:
         number: S77
         label: 'Yagov'
-        tags: playfield_active
+        #tags: playfield_active
     s_bonusXLeft:
         number: S78
         label: 'Top Left Loop'

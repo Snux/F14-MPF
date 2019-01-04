@@ -33,4 +33,5 @@ rgb_dmds:
      only_send_changes: true
      brightness: .5
      source_display: dmd_mini
+     channel_order: rbg
      fps: 25      

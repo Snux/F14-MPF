@@ -66,7 +66,7 @@ slide_player:
          target: dmd_mini
          widgets:
           - type: text
-            text: LOCK1 (lock1_status)
+            text: PLAYER (number)
             color: deepskyblue
             y: 9
             x: 1
@@ -76,7 +76,7 @@ slide_player:
             font_name: fixed_01
           - type: text
             color: red
-            text: LOCK2 (lock2_status)
+            text: BALL (ball)
             y: 1
             x: 1
             anchor_x: left
@@ -85,7 +85,7 @@ slide_player:
             font_name: fixed_01
           - type: text
             color: orange
-            text: LOCK3 (lock3_status)
+            text: RESCUE (kickback_status)
             y: 18
             x: 1
             anchor_x: left
@@ -100,4 +100,3 @@ sound_player:
          action: play
          loops: -1
       
-        
