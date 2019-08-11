@@ -12,4 +12,23 @@
 # TODO - make it better!
 show_player:
   mode_attract_started: attract_display_loop
-  #mode_attract_started.1: attract_light_show
+  mode_attract_started.1: 
+      done:
+         speed: 50
+  mode_attract_started.2: 
+     attract_segment_loop_lower:
+        speed: 20
+  mode_attract_started.3: 
+     attract_segment_loop_upper:
+        speed: 10
+         
+#segment_display_player:
+#   mode_attract_started:
+#      player1_display:
+#         text: "Pinball"
+#      player2_display:
+#         text: "is fun"
+#      player3_display:
+#         text: "1234567"
+#      player4_display:
+#         text: "890 APC"

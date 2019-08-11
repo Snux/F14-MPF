@@ -25,16 +25,16 @@
 # ' `               + + +  (X)(X)  ~--\__ __/--~  (X)(X)  + + +               ' `
 #                              (X) `/.\' ~ `/.\' (X)
 #                                  "\_/"   "\_/"
-
 # Second sortie V2
 config:
    - display.yaml
-   - prochardware.yaml
+#   - prochardware.yaml
+   - apchardware.yaml
    - devices.yaml
    - kickback.yaml
    - simple_shows.yaml
    - sounds.yaml
-#   - diverters.yaml
+   - diverters.yaml
 #   - smart_matrix.yaml
 #   - real_dmd.yaml
 
@@ -125,3 +125,5 @@ keyboard:
       switch:   s_unused57
    s:
       switch:   s_startButton
+   1:
+      switch:   s_lock1_ramp

@@ -45,15 +45,15 @@ light_stripes:
          default_on_color: green
 
 lights:
-    l_lightLockOn:
+    l_light_lock_on:
         number: L11
         label: 'Lites Lock On'
         platform: p_roc
-    l_lightRelease:
+    l_light_release:
         number: L12
         label: 'Lites Release'
         platform: p_roc
-    l_blueSpecial:
+    l_hot_streak:
         number: L13
         label: 'Hot Streak'
         platform: p_roc
@@ -323,7 +323,7 @@ coils:
     c_troughEject:
         number: C02a
         tags: trough_eject
-        pulse_events: s_coinLeft_active, eject_from_trough
+        pulse_events: s_coinLeft_active , eject_from_trough
         default_pulse_ms: 30
         label: 'Trough Eject'
     c_flasher2:

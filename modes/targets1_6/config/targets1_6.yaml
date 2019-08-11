@@ -52,7 +52,7 @@ variable_player:
 shots:
   generic1_6:
     switches: s_target1 s_target2 s_target3 s_target4 s_target5 s_target6
-    restart_events: generic1_6_default_hit
+    #restart_events: generic1_6_default_hit
 
 event_player:
    timer_cycle1_6_tick{device.timers.cycle1_6.ticks==1}: # hit the right target and it's lit

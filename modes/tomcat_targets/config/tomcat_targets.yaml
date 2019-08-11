@@ -25,9 +25,9 @@ event_player:
       - increment_bonus # handled by the bonus_manager mode
    tomcat_lit_complete{current_player.lock1_status=='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
       - light_lock_1 # This will need to get more clever, but for now just enable lock 1
-   tomcat_lit_complete{current_player.lock2_status=='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
+   tomcat_lit_complete{current_player.lock2_status=='unlit' and current_player.lock1_status!='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
       - light_lock_2 # This will need to get more clever, but for now just enable lock 2
-   tomcat_lit_complete{current_player.lock3_status=='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
+   tomcat_lit_complete{current_player.lock3_status=='unlit' and current_player.lock1_status!='unlit' and current_player.lock2_status!='unlit' and device.multiballs.tomcat_multiball.enabled==False}:
       - light_lock_3 # This will need to get more clever, but for now just enable lock 3
    # These ones will handle an event which should spot a random letter
    # The "attempt_spot" events are generated from the random_player in this mode.  If the attempt is made on a target

@@ -1,4 +1,4 @@
-cd c:\mpf\F14v1
+cd c:\mpf\F14-MPF
 mpf monitor
 
 

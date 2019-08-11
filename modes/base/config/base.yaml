@@ -38,7 +38,17 @@ variable_player:
           action: set
           int: 0
 
-       
+segment_display_player:
+  # empty all displays on game start and setup display5
+  mode_base_started:
+    player1_display:
+      text: "{players[0].score:d}"
+    player2_display:
+      text: ""
+    player3_display:
+      text: ""
+    player4_display:
+      text: ""
 
 # Need to switch the flippers on and off (System 11!)
 event_player:
@@ -66,7 +76,8 @@ slide_player:
          target: dmd_mini
          widgets:
           - type: text
-            text: PLAYER (number)
+            #text: PLAYER (number)
+            text: LOCK1 (lock1_status)
             color: deepskyblue
             y: 9
             x: 1
@@ -76,7 +87,8 @@ slide_player:
             font_name: fixed_01
           - type: text
             color: red
-            text: BALL (ball)
+            #text: BALL (ball)
+            text: LOCK2 (lock2_status)
             y: 1
             x: 1
             anchor_x: left
@@ -85,7 +97,8 @@ slide_player:
             font_name: fixed_01
           - type: text
             color: orange
-            text: RESCUE (kickback_status)
+            #text: RESCUE (kickback_status)
+            text: LOCK3 (lock3_status)
             y: 18
             x: 1
             anchor_x: left
