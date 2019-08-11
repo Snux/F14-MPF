@@ -1,0 +1,279 @@
+#show_version=5
+- time: 0
+  lights:
+      l_hot_streak: 'FFFFFF'
+      l_kill: 'FFFFFF'
+      l_kill4: 'FFFFFF'
+      l_light_release: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_kill3: 'FFFFFF'
+      l_kill4: 'FFFFFF'
+      l_leftRescue: 'FFFFFF'
+      l_light_release: 'FFFFFF'
+      l_release: 'FFFFFF'
+      l_upperRightC: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus2X: 'FFFFFF'
+      l_kill: 'FFFFFF'
+      l_kill2: 'FFFFFF'
+      l_kill4: '000000'
+      l_light_release: '000000'
+      l_release: 'FFFFFF'
+- time: '+1'
+  lights:
+      l_bonus3X: 'FFFFFF'
+      l_kill: '000000'
+      l_kill1: 'FFFFFF'
+      l_kill2: 'FFFFFF'
+      l_kill3: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus2X: '000000'
+      l_bonus4X: 'FFFFFF'
+      l_kill1: 'FFFFFF'
+      l_kill2: '000000'
+      l_leftRescue: 'FFFFFF'
+      l_upperRightA: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus3X: '000000'
+      l_bonus4X: 'FFFFFF'
+      l_kill1: '000000'
+      l_leftRescue: '000000'
+      l_lock3: 'FFFFFF'
+      l_release: 'FFFFFF'
+      l_target3: 'FFFFFF'
+      l_upperRightC: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus5X: 'FFFFFF'
+      l_lock3: 'FFFFFF'
+      l_release: '000000'
+      l_target3: 'FFFFFF'
+      l_upperRightC: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus4X: '000000'
+      l_hot_streak: 'FFFFFF'
+      l_landing3: 'FFFFFF'
+      l_upperRightT: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus6X: 'FFFFFF'
+      l_hot_streak: 'FFFFFF'
+      l_lock3: 'FFFFFF'
+      l_lockOn: 'FFFFFF'
+      l_target2: 'FFFFFF'
+      l_upperRightT: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus5X: '000000'
+      l_bonus6X: 'FFFFFF'
+      l_hot_streak: '000000'
+      l_inLanes: 'FFFFFF'
+      l_kickBack: 'FFFFFF'
+      l_landing3: 'FFFFFF'
+      l_lock3: '000000'
+      l_lockOn: 'FFFFFF'
+      l_lowerLeftT: 'FFFFFF'
+      l_target2: 'FFFFFF'
+      l_upperRightA: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_kickBack: '000000'
+      l_landing3: '000000'
+      l_lowerLeftT: 'FFFFFF'
+      l_target3: '000000'
+      l_upperRightA: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus6X: 'FFFFFF'
+      l_bonus7X: 'FFFFFF'
+      l_inLanes: '000000'
+      l_lowerLeftO: 'FFFFFF'
+      l_target1: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus6X: '000000'
+      l_bonus7X: 'FFFFFF'
+      l_bonusXLeft: 'FFFFFF'
+      l_lock1: 'FFFFFF'
+      l_lockOn: '000000'
+      l_lowerLeftT: '000000'
+      l_target1: 'FFFFFF'
+      l_target6: 'FFFFFF'
+      l_upperRightT: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus64K: 'FFFFFF'
+      l_bonusXLeft: 'FFFFFF'
+      l_landing1: 'FFFFFF'
+      l_lowerLeftM: 'FFFFFF'
+      l_target2: 'FFFFFF'
+      l_target6: 'FFFFFF'
+      l_upperRightT: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus64K: 'FFFFFF'
+      l_bonus7X: 'FFFFFF'
+      l_bonus8X: 'FFFFFF'
+      l_lock1: 'FFFFFF'
+      l_lowerLeftM: 'FFFFFF'
+      l_lowerLeftO: '000000'
+      l_spinner2K: 'FFFFFF'
+      l_target2: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus7X: '000000'
+      l_bonus8X: 'FFFFFF'
+      l_landing1: 'FFFFFF'
+      l_lock1: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonusXLeft: '000000'
+      l_landing1: '000000'
+      l_lock2: 'FFFFFF'
+      l_lowerLeftM: '000000'
+      l_lowerRightC: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus32K: 'FFFFFF'
+      l_bonus64K: 'FFFFFF'
+      l_bonusXRight: 'FFFFFF'
+      l_landing2: 'FFFFFF'
+      l_spinner2K: 'FFFFFF'
+      l_target1: 'FFFFFF'
+      l_target5: 'FFFFFF'
+      l_upperLeftT: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus32K: 'FFFFFF'
+      l_bonus64K: '000000'
+      l_bonus8X: 'FFFFFF'
+      l_lock2: '000000'
+      l_lowerRightA: 'FFFFFF'
+      l_spinner2K: '000000'
+      l_target1: '000000'
+      l_target5: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus8X: '000000'
+      l_landing2: '000000'
+      l_lowerRightA: 'FFFFFF'
+      l_lowerRightC: '000000'
+      l_target6: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus16K: 'FFFFFF'
+      l_extraBall: 'FFFFFF'
+      l_lowerRightT: 'FFFFFF'
+      l_target6: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus16K: 'FFFFFF'
+      l_bonus32K: '000000'
+      l_bonusXRight: 'FFFFFF'
+      l_light_lock_on: 'FFFFFF'
+      l_lowerRightA: '000000'
+      l_target4: 'FFFFFF'
+      l_upperLeftO: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonusXRight: '000000'
+      l_light_lock_on: 'FFFFFF'
+      l_lowerRightT: 'FFFFFF'
+      l_target4: 'FFFFFF'
+      l_upperLeftT: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus8K: 'FFFFFF'
+      l_lowerRightT: '000000'
+      l_target5: 'FFFFFF'
+      l_upperLeftT: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus16K: '000000'
+      l_bonus8K: 'FFFFFF'
+      l_extraBall: '000000'
+      l_target5: '000000'
+      l_upperLeftM: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus4K: 'FFFFFF'
+      l_ripOff: 'FFFFFF'
+      l_upperLeftO: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus4K: 'FFFFFF'
+      l_bonus8K: '000000'
+      l_ripOff: 'FFFFFF'
+      l_target4: 'FFFFFF'
+      l_upperLeftO: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus2K: 'FFFFFF'
+      l_kill7: 'FFFFFF'
+      l_landing: 'FFFFFF'
+      l_light_release: 'FFFFFF'
+      l_rightRescue: 'FFFFFF'
+      l_target4: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus2K: 'FFFFFF'
+      l_bonus4K: '000000'
+      l_kill6: 'FFFFFF'
+      l_kill7: 'FFFFFF'
+      l_light_lock_on: 'FFFFFF'
+      l_upperLeftM: 'FFFFFF'
+    
+- time: '+1'
+  lights:
+      l_bonus1K: 'FFFFFF'
+      l_bonus2K: 'FFFFFF'
+      l_rightRescue: '000000'
+      #l_kill: 'FFFFFF'
+      l_kill5: 'FFFFFF'
+      l_kill7: '000000'
+      l_light_lock_on: 'FFFFFF'
+      l_ripOff: 'FFFFFF'
+      l_upperLeftM: '000000'
+    
+- time: '+1'
+  lights:
+      l_bonus1K: '000000'
+      l_bonus2K: '000000'
+      l_kill: '000000'
+      l_kill5: '000000'
+      l_kill6: '000000'
+      l_light_lock_on: '000000'
+      l_ripOff: '000000'
+    

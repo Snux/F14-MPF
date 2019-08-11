@@ -1,0 +1,339 @@
+#show_version=5
+-   time: 0
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "       "
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "       "
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "      F"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "     F-"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "    F-1"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "   F-14"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "  F-14 "
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: " F-14 P"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "F-14 PI"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "      F"
+       player2_display:
+         text: "-14 PIN"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "     F-"
+       player2_display:
+         text: "14 PINB"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "    F-1"
+       player2_display:
+         text: "4 PINBA"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "   F-14"
+       player2_display:
+         text: " PINBAL"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "  F-14 "
+       player2_display:
+         text: "PINBALL"
+         
+-   time: '+25'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "      S"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "     Se"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "    Sec"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "   Seco"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "  Secon"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: " Second"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "Second "
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "      S"
+       player2_display:
+         text: "econd S"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "     Se"
+       player2_display:
+         text: "cond So"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "    Sec"
+       player2_display:
+         text: "ond Sor"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "   Seco"
+       player2_display:
+         text: "nd Sort"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "  Secon"
+       player2_display:
+         text: "d Sorti"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: " Second"
+       player2_display:
+         text: " Sortie"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "Second "
+       player2_display:
+         text: "Sortie "
+-   time: '+25'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "      M"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "     Mi"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "    Mis"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "   Miss"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "  Missi"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: " Missio"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "Mission"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "      M"
+       player2_display:
+         text: "issionP"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "     Mi"
+       player2_display:
+         text: "ssionPi"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "    Mis"
+       player2_display:
+         text: "sionPin"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "   Miss"
+       player2_display:
+         text: "ionPinb"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "  Missi"
+       player2_display:
+         text: "onPinba"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: " Missio"
+       player2_display:
+         text: "nPinbal"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "Mission"
+       player2_display:
+         text: "Pinball"
+-   time: '+25'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "      A"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "     Ar"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "    Ard"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "   Ardu"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "  Ardui"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: " Arduin"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "       "
+       player2_display:
+         text: "Arduino"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "      A"
+       player2_display:
+         text: "rduino "
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "     Ar"
+       player2_display:
+         text: "duino  "
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "    Ard"
+       player2_display:
+         text: "uino  A"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "   Ardu"
+       player2_display:
+         text: "ino  AP"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "  Ardui"
+       player2_display:
+         text: "no  APC"
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: " Arduin"
+       player2_display:
+         text: "o  APC "
+-   time: '+1'
+    segment_displays:
+       player1_display:
+         text: "Arduino"
+       player2_display:
+         text: "  APC  "
+-   time: '+25'       
