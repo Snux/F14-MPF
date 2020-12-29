@@ -22,11 +22,10 @@ hardware:
 system11:
     ac_relay_delay_ms: 75
     ac_relay_driver: c_acSelect
-
+    
 snux:
-    flipper_enable_driver: c_flipperEnable
     diag_led_driver: c_diagLED
-    platform:
+    
 
 light_stripes:
    gi_lamp:
@@ -334,13 +333,13 @@ coils:
         label: 'Ball Popper'
     c_flasher3:
         number: C03c
-        pulse_events: rescue_complete{state=='lit'}
+#        pulse_events: rescue_complete{state=='lit'}
         label: 'Flasher 3'
         default_pulse_ms: 200ms
     c_flasher4:
         number: C04c
         label: 'Flasher 4'
-        pulse_events: rescue_complete{ state=='lit'}
+#        pulse_events: rescue_complete{ state=='lit'}
         default_pulse_ms: 200ms
     c_lock2_eject:
         number: C05a
@@ -349,7 +348,7 @@ coils:
     c_flasher5:
         number: C05c
         label: 'Flasher 5'
-        pulse_events: rescue_complete{ state=='lit'}
+#        pulse_events: rescue_complete{ state=='lit'}
         default_pulse_ms: 200ms
     c_knocker:
         number: C06a
